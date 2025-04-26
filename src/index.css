@@ -1,6 +1,105 @@
 @import "tailwindcss";
 
-.center-text
-{
-  @apply flex flex-col items-center justify-center h-screen
+html, body {
+  scroll-behavior: smooth;
+  color: white;
+  overflow-x: hidden;
+  width: 100%;
+  background-color: black;
+}
+
+@font-face {
+  font-family: 'Sf Pro Display Regular';
+  src: url('/fonts/SFPRODISPLAYREGULAR.OTF') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sf Pro Display Medium';
+  src: url('/fonts/SFPRODISPLAYMEDIUM.OTF') format('truetype');
+}
+
+.serif {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -2%;
+}
+
+.sf {
+  font-family: 'Sf Pro Display Regular', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  letter-spacing: -2%;
+}
+
+.smif {
+  font-family: 'Sf Pro Display Medium', Arial, Helvetica, sans-serif;
+  letter-spacing: -2%;
+}
+
+img,
+video {
+  pointer-events: none;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: inherit;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a:focus,
+a:visited,
+a:active {
+  outline: none;
+}
+
+img::selection {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+::selection {
+  background-color: rgba(255, 255, 255, 0.125);
+}
+
+::-moz-selection {
+  background-color: rgba(255, 255, 255, 0.125);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray3);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gray2);
+}
+
+:root {
+  --gray1: #AFAFB6;
+  --gray2: #54555D;
+  --gray3: #252528;
+  --gray4: #161618;
+  --gray5: #0F0F10;
+}
+
+.alt{
+  color: var(--gray1)
 }
