@@ -4,5 +4,5 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/react-test/', // <-- THIS is the important part!
+  base: '/aweb/', // <-- THIS is the important part!
 })
