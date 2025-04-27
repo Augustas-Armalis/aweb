@@ -10,7 +10,7 @@ const buttonVariants = {
     transition: {
       duration: 1,
       ease: [0.25, 0, 0.1, 1],
-      delay: 0.2 + (index * 0.2),
+      delay: 0.2 + (index * 0.17),
     },
   }),
 };
@@ -26,7 +26,7 @@ const HeroButtons = () => {
         initial="hidden"
         animate="visible"
       >
-        <ButterflyBtn />
+        <ButterflyBtn title="Let's talk" href="#"/>
       </motion.div>
       <motion.div
         custom={1}
@@ -34,7 +34,7 @@ const HeroButtons = () => {
         initial="hidden"
         animate="visible"
       >
-        <MainBtn />
+        <MainBtn title="Pricing" href="#"/>
       </motion.div>
     </div>
 

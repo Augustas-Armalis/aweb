@@ -7,11 +7,53 @@
     <title>AWeb</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
-    <script type="module" crossorigin src="/aweb/assets/index-CcMZovCQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/aweb/assets/index-BDVMTl5R.css">
+    <script type="module" crossorigin src="/aweb/assets/index-ANEOI616.js"></script>
+    <link rel="stylesheet" crossorigin href="/aweb/assets/index-BPfHAE1H.css">
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Lenis -->
+
+  <script>
+    function isTouchDevice() {
+      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    }
+
+    if (!isTouchDevice()) {
+      const lenis = new Lenis({
+        autoRaf: false,
+        smoothWheel: true,
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        lerp: 0.1,
+      });
+
+      const scrollPosition = sessionStorage.getItem('scrollPosition') || 0;
+
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem('scrollPosition', window.scrollY);
+      });
+
+      window.addEventListener('load', () => {
+        window.scrollTo(0, scrollPosition);
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+
+      lenis.on('scroll', (e) => {
+        console.log(e);
+      });
+    }
+  </script>
+  
   </body>
 </html>

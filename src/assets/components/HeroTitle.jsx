@@ -66,7 +66,11 @@ const HeroTitle = () => {
               key={`${lineIndex}-${wordIndex}-${charIndex}`}
               variants={titleLetterVariants}
               className={isSerif ? 'serif' : ''}
-              style={{ display: 'inline-block', whiteSpace: 'pre' }}
+              style={{
+                display: 'inline-block',
+                whiteSpace: 'pre',
+                marginRight: char === 'Y' ? '-6px' : undefined,
+              }}
             >
               {char}
             </motion.span>
@@ -101,7 +105,7 @@ const HeroTitle = () => {
 
   return (
     <>
-      <div className="smif text-[57px] leading-[115%] !mb-4">
+      <div className="smif text-[58px] leading-[115%] !mb-4 !mt-[62px] max-[1064px]:text-[50px]">
         {titleLines.map((line, lineIndex) => (
           <motion.div
             key={lineIndex}
