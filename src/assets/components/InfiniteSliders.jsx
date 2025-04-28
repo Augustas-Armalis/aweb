@@ -2,11 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const InfiniteSliders = () => {
-    // Define constants
-    const slideWidth = 290; // px
-    const gap = 8; // Tailwind gap-2 is approximately 8px
 
-    // Separate image source arrays
+    const slideWidth = 290;
+    const gap = 8;
+
     const topImageSrcs = [
         'images/websites/dark/Moon.webp',
         'images/websites/dark/Wation.webp',
@@ -42,13 +41,10 @@ const InfiniteSliders = () => {
         'images/websites/light/Mujtama.webp',
     ];
 
-    // Number of slides for each row
-    const topNumberOfSlides = topImageSrcs.length; // 12
-    const bottomNumberOfSlides = bottomImageSrcs.length; // 17
+    const topNumberOfSlides = topImageSrcs.length;
+    const bottomNumberOfSlides = bottomImageSrcs.length;
 
-    // Function to create a slide for the top row (stagger starting from second-to-last, reversed)
     const createTopSlide = (src, index) => {
-        // Reverse stagger: start at second-to-last (index=10), then index=9, 8, ..., 11
         const staggerOrder = (topNumberOfSlides - 1 - ((index + 2) % topNumberOfSlides)) % topNumberOfSlides;
         const staggerDelay = 0.2 + staggerOrder * 0.05;
 
@@ -75,9 +71,8 @@ const InfiniteSliders = () => {
         );
     };
 
-    // Function to create a slide for the bottom row (stagger starting from second-to-last)
     const createBottomSlide = (src, index) => {
-        const staggerOrder = (index + 2) % bottomNumberOfSlides; // Shift to start at second-to-last (index=15)
+        const staggerOrder = (index + 2) % bottomNumberOfSlides;
         const staggerDelay = 0.2 + staggerOrder * 0.05;
 
         return (
@@ -103,7 +98,6 @@ const InfiniteSliders = () => {
         );
     };
 
-    // Create triplicated slides for seamless looping
     const triplicatedTopSlides = [...topImageSrcs, ...topImageSrcs, ...topImageSrcs].map((src, i) =>
         createTopSlide(src, i % topNumberOfSlides)
     );
@@ -111,16 +105,12 @@ const InfiniteSliders = () => {
         createBottomSlide(src, i % bottomNumberOfSlides)
     );
 
-    // Calculate total width including gaps for each row
-    const topTotalWidth = topNumberOfSlides * (slideWidth + gap) - gap; // 12 * (290 + 8) - 8 = 3568px
-    const bottomTotalWidth = bottomNumberOfSlides * (slideWidth + gap) - gap; // 17 * (290 + 8) - 8 = 5058px
-
-    // Match sliding speed: Top row speed = 3568px / 25s = 142.72px/s
-    const bottomDuration = bottomTotalWidth / (topTotalWidth / 25); // 5058 / 142.72 ≈ 35.44s
+    const topTotalWidth = topNumberOfSlides * (slideWidth + gap) - gap;
+    const bottomTotalWidth = bottomNumberOfSlides * (slideWidth + gap) - gap;
+    const bottomDuration = bottomTotalWidth / (topTotalWidth / 25);
 
     return (
         <div className="w-[100vw] h-fit flex flex-col gap-2">
-            {/* Top row: Infinite slider moving right to left */}
             <div className="relative w-full overflow-hidden h-[180px]">
                 <motion.div
                     className="flex flex-row gap-2"
@@ -137,7 +127,6 @@ const InfiniteSliders = () => {
                 </motion.div>
             </div>
 
-            {/* Bottom row: Infinite slider moving left to right */}
             <div className="relative w-full overflow-hidden h-[180px]">
                 <motion.div
                     className="flex flex-row gap-2"
@@ -146,7 +135,7 @@ const InfiniteSliders = () => {
                     }}
                     transition={{
                         ease: 'linear',
-                        duration: bottomDuration, // ≈ 35.44s to match top row speed
+                        duration: bottomDuration,
                         repeat: Infinity,
                     }}
                 >

@@ -1,4 +1,5 @@
-import Hero from "./assets/sections/hero"
+import Hero from "./assets/sections/Hero"
+import Bento from "./assets/sections/Bento"
 import FlyingCircle from "./assets/components/FlyingCircle"
 
 function HomePage() {
@@ -9,11 +10,14 @@ function HomePage() {
       <FlyingCircle/>
 
 
-      <div className="min-h-[100vh] w-[100vw] flex justify-center">
+      <div className="min-h-screen flex justify-center flex-col">
     
         <Hero/>
-    
+        <Bento/>
+        
       </div>
+
+      <div className="h-[300vh]"/>
     </>
   );
 
