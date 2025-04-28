@@ -34,6 +34,8 @@ html, body {
 .smif {
   font-family: 'Sf Pro Display Medium', Arial, Helvetica, sans-serif;
   letter-spacing: -2%;
+  font-weight: 600;
+/* test if this is needed */
 }
 
 img,
