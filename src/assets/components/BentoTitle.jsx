@@ -66,7 +66,7 @@ const BentoTitle = () => {
       variants={titleLineVariants}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
-      className="smif text-[36px] block overflow-hidden"
+      className="smif text-[36px] block overflow-hidden text-center leading-tight"
       style={{ position: 'relative' }}
     >
       {splitLineIntoWords(title)}

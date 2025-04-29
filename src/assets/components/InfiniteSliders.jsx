@@ -7,9 +7,9 @@ const InfiniteSliders = () => {
     const gap = 8;
 
     const topImageSrcs = [
-        'images/websites/dark/Moon.webp',
-        'images/websites/dark/Wation.webp',
         'images/websites/dark/Softwero.webp',
+        'images/websites/dark/Wation.webp',
+        'images/websites/dark/Moon.webp',
         'images/websites/dark/Ferony.webp',
         'images/websites/dark/Plazma.webp',
         'images/websites/dark/Alexun.webp',

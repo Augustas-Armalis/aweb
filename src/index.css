@@ -27,14 +27,14 @@ html, body {
 
 .sf {
   font-family: 'Sf Pro Display Regular', Arial, Helvetica, sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -2%;
 }
 
 .smif {
   font-family: 'Sf Pro Display Medium', Arial, Helvetica, sans-serif;
   letter-spacing: -2%;
-  font-weight: 600;
+  font-weight: 550;
 /* test if this is needed */
 }
 
@@ -100,6 +100,7 @@ img::selection {
   --gray3: #252528;
   --gray4: #161618;
   --gray5: #0F0F10;
+  
 }
 
 .alt{

@@ -70,7 +70,8 @@ const FirstBento = () => {
       <motion.img
         src="images/websites/dark/Plazma.webp"
         alt="Website"
-        className="absolute z-20 h-[220px] w-auto border border-[var(--gray4)] rounded-[16px] object-cover object-left right-[-130px] bottom-[-25px]"
+        className="absolute z-20 h-[220px] w-auto border border-[var(--gray4)] rounded-[16px] object-cover object-left right-[-130px] bottom-[-25px] shadow-[0_0_20px_0_rgba(0,0,0,0.5)]
+"
         variants={largeImageVariants}
       />
 

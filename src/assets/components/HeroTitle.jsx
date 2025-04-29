@@ -105,7 +105,7 @@ const HeroTitle = () => {
 
   return (
     <>
-      <div className="smif text-[58px] leading-[115%] !mb-4 !mt-[62px] max-[1064px]:text-[50px]">
+      <div className="smif text-[58px] leading-[115%] !mb-4 !mt-[62px] max-[1064px]:text-[50px] max-[548px]:!mt-[36px] max-[548px]:text-[36px] max-[548px]:!mb-2">
         {titleLines.map((line, lineIndex) => (
           <motion.div
             key={lineIndex}
@@ -121,7 +121,7 @@ const HeroTitle = () => {
         ))}
       </div>
       <motion.p
-        className="sf text-xl alt max-w-[413px] leading-[130%] !mb-8"
+        className="sf text-xl alt max-w-[413px] leading-[130%] !mb-8 max-[548px]:text-[18px]"
         variants={altContainerVariants}
         initial="hidden"
         animate="visible"
