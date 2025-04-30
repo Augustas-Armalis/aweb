@@ -234,7 +234,7 @@ const SecondBento = () => {
       </div>
 
       <div className="w-full h-full absolute z-0 top-0 left-0 flex justify-center items-center">
-        <div className="relative w-[240px] h-[220px] bg-[#839ABC] rounded-[50%] blur-[160px] z-0 bottom-[-200px]" />
+        <div className="relative w-[240px] h-[220px] bg-[#839ABC] rounded-[50%] blur-[120px] z-0 bottom-[-200px]" />
         <div className="absolute z-10 bottom-[-80px]">
           <motion.img
             src="images/svgs/BigCircle.svg"
@@ -259,7 +259,7 @@ const SecondBento = () => {
             className="absolute right-[-10px] bottom-[210px] z-90 bg-black/70 !py-[4px] !px-[12px] border border-white/20 rounded-[10px] backdrop-blur-[10px] shadow-[0_0_20px_0_rgba(0,0,0,0.5)]"
             variants={developmentTextVariants}
           >
-            <p className="sf text-[16px] text-[#7f7f85]">Development</p>
+            <p className="sf select-none text-[16px] text-[#7f7f85]">Development</p>
           </motion.div>
         </div>
         <div className="absolute z-10 bottom-[-30px]">
@@ -286,7 +286,7 @@ const SecondBento = () => {
             className="absolute left-[-25px] bottom-[75px] z-90 bg-black/70 !py-[2px] !px-[10px] border border-white/20 rounded-[10px] backdrop-blur-[10px] shadow-[0_0_20px_0_rgba(0,0,0,0.5)]"
             variants={designTextVariants}
           >
-            <p className="sf text-[16px] text-[#7f7f85]">Design</p>
+            <p className="sf select-none text-[16px] text-[#7f7f85]">Design</p>
           </motion.div>
         </div>
       </div>

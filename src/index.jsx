@@ -1,6 +1,7 @@
 import Hero from "./assets/sections/Hero"
 import Bento from "./assets/sections/Bento"
 import FlyingCircle from "./assets/components/FlyingCircle"
+import Testimonials from "./assets/sections/Testimonials";
 
 function HomePage() {
 
@@ -14,6 +15,7 @@ function HomePage() {
     
         <Hero/>
         <Bento/>
+        <Testimonials/>
         
       </div>
 
