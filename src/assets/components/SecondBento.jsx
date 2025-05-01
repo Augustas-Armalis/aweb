@@ -237,7 +237,7 @@ const SecondBento = () => {
         <div className="relative w-[240px] h-[220px] bg-[#839ABC] rounded-[50%] blur-[120px] z-0 bottom-[-200px]" />
         <div className="absolute z-10 bottom-[-80px]">
           <motion.img
-            src="images/svgs/BigCircle.svg"
+            src="images/svgs/BigCircler.svg"
             className="w-[260px] h-[260px]"
             alt="circle"
             variants={largeCircleVariants}
@@ -264,7 +264,7 @@ const SecondBento = () => {
         </div>
         <div className="absolute z-10 bottom-[-30px]">
           <motion.img
-            src="images/svgs/BigCircle.svg"
+            src="images/svgs/BigCircler.svg"
             className="w-[150px] h-[150px]"
             alt="circle"
             variants={smallCircleVariants}
