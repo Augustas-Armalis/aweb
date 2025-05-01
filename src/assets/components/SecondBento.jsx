@@ -9,8 +9,7 @@ const SecondBento = () => {
 
   const largeCircleVariants = {
     rest: {
-      x: 0,
-      y: 0,
+      rotate: 0,
       transition: {
         duration: 0.2,
         ease: "easeOut",
@@ -18,22 +17,10 @@ const SecondBento = () => {
     },
     active: {
       rotate: 360,
-      x: [0, 5, 0, -5, 0],
-      y: [0, -3, 0, 3, 0],
       transition: {
         rotate: {
           duration: 2,
           ease: "linear",
-          repeat: Infinity,
-        },
-        x: {
-          duration: 4.2,
-          ease: "easeInOut",
-          repeat: Infinity,
-        },
-        y: {
-          duration: 4.8,
-          ease: "easeInOut",
           repeat: Infinity,
         },
       },
@@ -42,8 +29,7 @@ const SecondBento = () => {
 
   const smallCircleVariants = {
     rest: {
-      x: 0,
-      y: 0,
+      rotate: 0,
       transition: {
         duration: 0.2,
         ease: "easeOut",
@@ -51,22 +37,10 @@ const SecondBento = () => {
     },
     active: {
       rotate: -360,
-      x: [0, -3, 0, 3, 0],
-      y: [0, 5, 0, -5, 0],
       transition: {
         rotate: {
           duration: 2,
           ease: "linear",
-          repeat: Infinity,
-        },
-        x: {
-          duration: 4.5,
-          ease: "easeInOut",
-          repeat: Infinity,
-        },
-        y: {
-          duration: 4.0,
-          ease: "easeInOut",
           repeat: Infinity,
         },
       },
@@ -183,8 +157,16 @@ const SecondBento = () => {
 
   const handleHoverStart = () => {
     if (!isActive) {
-      if (augustasVideoRef.current) augustasVideoRef.current.play();
-      if (danielVideoRef.current) danielVideoRef.current.play();
+      if (augustasVideoRef.current) {
+        augustasVideoRef.current.play().catch((error) => {
+          console.error("Error playing Augustas video on hover:", error);
+        });
+      }
+      if (danielVideoRef.current) {
+        danielVideoRef.current.play().catch((error) => {
+          console.error("Error playing Daniel video on hover:", error);
+        });
+      }
     }
   };
 
@@ -207,13 +189,49 @@ const SecondBento = () => {
 
   useEffect(() => {
     if (isActive) {
-      if (augustasVideoRef.current) augustasVideoRef.current.play();
-      if (danielVideoRef.current) danielVideoRef.current.play();
+      if (augustasVideoRef.current) {
+        augustasVideoRef.current.play().catch((error) => {
+          console.error("Error playing Augustas video on active:", error);
+        });
+      }
+      if (danielVideoRef.current) {
+        danielVideoRef.current.play().catch((error) => {
+          console.error("Error playing Daniel video on active:", error);
+        });
+      }
     } else {
       if (augustasVideoRef.current) augustasVideoRef.current.pause();
       if (danielVideoRef.current) danielVideoRef.current.pause();
     }
   }, [isActive]);
+
+  useEffect(() => {
+    const playBriefly = (videoRef, name) => {
+      if (videoRef.current) {
+        const video = videoRef.current;
+        const onLoaded = () => {
+          console.log(`${name} video loaded`);
+          video
+            .play()
+            .then(() => {
+              console.log(`${name} video playing for 0.1s`);
+              setTimeout(() => {
+                video.pause();
+                console.log(`${name} video paused after 0.1s`);
+              }, 100);
+            })
+            .catch((error) => {
+              console.error(`Error playing ${name} video on load:`, error);
+            });
+        };
+        video.addEventListener("loadeddata", onLoaded);
+        return () => video.removeEventListener("loadeddata", onLoaded);
+      }
+    };
+
+    playBriefly(augustasVideoRef, "Augustas");
+    playBriefly(danielVideoRef, "Daniel");
+  }, []);
 
   return (
     <motion.div
