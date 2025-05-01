@@ -28,7 +28,6 @@ const FlyingCircle = () => {
     if (width <= 1064) return;
 
     const circleElement = circleRef.current;
-    const circleDissapearTo = document.querySelectorAll('.circle-none');
     const mouse = { x: 0, y: 0 };
     const previousMouse = { x: 0, y: 0 };
     const circle = { x: 0, y: 0 };
@@ -96,12 +95,38 @@ const FlyingCircle = () => {
     };
 
     animationFrameRef.current = requestAnimationFrame(tick);
-
     window.addEventListener('mousemove', handleMouseMove);
 
-    circleDissapearTo.forEach((container) => {
-      container.addEventListener('mouseenter', fadeOutCircle);
-      container.addEventListener('mouseleave', fadeInCircle);
+    // Function to attach event listeners to all circle-none elements
+    const attachListeners = () => {
+      const circleDissapearTo = document.querySelectorAll('.circle-none');
+      circleDissapearTo.forEach((container) => {
+        container.addEventListener('mouseenter', fadeOutCircle);
+        container.addEventListener('mouseleave', fadeInCircle);
+      });
+      return circleDissapearTo;
+    };
+
+    // Initial attachment of listeners
+    let currentElements = attachListeners();
+
+    // Set up MutationObserver to watch for DOM changes
+    const observer = new MutationObserver(() => {
+      const newElements = document.querySelectorAll('.circle-none');
+      if (newElements.length !== currentElements.length || Array.from(newElements).some((el, i) => el !== currentElements[i])) {
+        // Remove listeners from old elements
+        currentElements.forEach((container) => {
+          container.removeEventListener('mouseenter', fadeOutCircle);
+          container.removeEventListener('mouseleave', fadeInCircle);
+        });
+        // Attach listeners to new elements
+        currentElements = attachListeners();
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
     });
 
     document.addEventListener('visibilitychange', () => {
@@ -125,7 +150,8 @@ const FlyingCircle = () => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
-      circleDissapearTo.forEach((container) => {
+      observer.disconnect();
+      currentElements.forEach((container) => {
         container.removeEventListener('mouseenter', fadeOutCircle);
         container.removeEventListener('mouseleave', fadeInCircle);
       });

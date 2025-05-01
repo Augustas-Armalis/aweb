@@ -1,23 +1,31 @@
-const TestimonialButton = ({title, src}) => {
+import React from 'react';
+
+const TestimonialButton = ({ title, src, isActive = false, onClick }) => {
+  const hasTitle = Boolean(title?.trim());
 
   return (
-    <>
+    <div
+      className={`select-none cursor-pointer circle-none flex flex-shrink-0 items-center justify-center gap-1.5 rounded-[10px] w-fit h-fit transition-all duration-300 ease-out
+        ${hasTitle ? "!py-[5px] !pr-[12px] !pl-[8px]" : "!p-[8px]"}
+        ${isActive
+          ? "bg-[var(--gray4)] border border-[var(--gray3)] hover:bg-[var(--gray3)]/80 hover:border-[var(--gray2)]/60"
+          : "bg-black border border-[var(--gray3)] hover:bg-[var(--gray4)] hover:border-[var(--gray2)]"}`}
+      onClick={onClick}
+      role="button"
+      aria-pressed={isActive}
+    >
+      <img 
+        src={src} 
+        alt={title || "control"} 
+        className={`w-4 h-4 circle-none ${isActive ? "" : "opacity-70"} transition-opacity duration-200`} 
+      />
+      {hasTitle && (
+        <p className={`smif text-[18px] ${isActive ? "" : "alt"} leading-[115%] z-20 h-4 !mb-[4px] !mt-[2px]`}>
+          {title}
+        </p>
+      )}
+    </div>
+  );
+};
 
-      <div className="select-none cursor-pointer circle-none bg-[var(--gray4)] border border-[var(--gray3)] flex items-center justify-center gap-1.5 rounded-[10px] w-fit h-fit !py-[5px] !pr-[12px] !pl-[8px] transition-bg transition-border ease-out duration-300 hover:bg-[var(--gray3)]/80 hover:border-[var(--gray2)]/60">
-        <img src={src} alt="icon" className="w-4 h-4"/>
-        <p className="smif text-[18px] leading-[115%] z-20">{title}</p>
-      </div>
-
-
-      {/* This is how unactive should look like below */}
-
-      {/* <div className="select-none cursor-pointer circle-none bg-black border border-[var(--gray3)] flex items-center justify-center gap-1.5 rounded-[10px] w-fit h-fit !py-[5px] !pr-[12px] !pl-[8px] transition-bg transition-border ease-out duration-300 hover:bg-[var(--gray4)] hover:border-[var(--gray2)]">
-        <img src={src} alt="icon" className="w-4 h-4 opacity-70"/>
-        <p className="smif text-[18px] alt leading-[115%] z-20">{title}</p>
-      </div> */}
-    
-    </>
-  )
-}
-
-export default TestimonialButton;
+export default React.memo(TestimonialButton);

@@ -6,6 +6,8 @@ html, body {
   overflow-x: hidden;
   width: 100%;
   background-color: black;
+  font-family: 'Sf Pro Display Regular', Arial, Helvetica, sans-serif;
+
 }
 
 @font-face {
