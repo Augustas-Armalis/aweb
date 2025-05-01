@@ -5,7 +5,7 @@ import CaseButton from "../components/CaseButton.jsx";
 import TestimonialButton from "../buttons/TestimonialButton.jsx";
 import TestimonialLink from "../buttons/TestimonialLink.jsx";
 
-const TestimonialRight = ({ brand, desc, case1, case2 }) => {
+const SproutTestimonial = ({ brand, desc, case1, case2 }) => {
   const [activeTab, setActiveTab] = useState("Testimonial");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
@@ -16,9 +16,9 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
   const [isReverseStagger, setIsReverseStagger] = useState(false);
 
   const images = [
-    { src: "images/websites/testimonials/PlazmaHero.webp", alt: "Image 1" },
-    { src: "images/thumbnails/AresThumbnail.webp", alt: "Image 2" },
-    { src: "images/thumbnails/AresThumbnail.webp", alt: "Image 3" },
+    { src: "images/websites/testimonials/SproutHero.webp" },
+
+    { src: "images/websites/testimonials/PlazmaHero.webp" },
   ];
 
   const carouselRef = useRef(null);
@@ -193,16 +193,17 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
                     className="w-full h-full absolute top-0 left-0"
                     style={{ zIndex: 10 }}
                   >
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={`https://www.youtube.com/embed/G7qvBdtHAO4?autoplay=1&modestbranding=1&rel=0&controls=1&color=white`}
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
+                   <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/G7qvBdtHAO4?autoplay=1&mute=1&modestbranding=1&rel=0&controls=1&color=white"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  ></iframe>
+
                   </motion.div>
                 )}
               </>
@@ -224,7 +225,7 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
                     <div key={index} className="w-full h-full flex-shrink-0">
                       <img
                         src={image.src}
-                        alt={image.alt}
+                        alt="Website"
                         className="w-full h-full object-cover"
                         draggable="false"
                       />
@@ -425,4 +426,4 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
   );
 };
 
-export default TestimonialRight;
+export default SproutTestimonial;

@@ -5,7 +5,7 @@ import CaseButton from "../components/CaseButton.jsx";
 import TestimonialButton from "../buttons/TestimonialButton.jsx";
 import TestimonialLink from "../buttons/TestimonialLink.jsx";
 
-const TestimonialRight = ({ brand, desc, case1, case2 }) => {
+const FrostchangerTestimonial = ({ brand, desc, case1, case2 }) => {
   const [activeTab, setActiveTab] = useState("Testimonial");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
@@ -16,9 +16,10 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
   const [isReverseStagger, setIsReverseStagger] = useState(false);
 
   const images = [
-    { src: "images/websites/testimonials/PlazmaHero.webp", alt: "Image 1" },
-    { src: "images/thumbnails/AresThumbnail.webp", alt: "Image 2" },
-    { src: "images/thumbnails/AresThumbnail.webp", alt: "Image 3" },
+    { src: "images/websites/testimonials/FrostchangerAdminDark.webp"},
+    { src: "images/websites/testimonials/FrostchangerAdminLight.webp"},
+    { src: "images/websites/testimonials/FrostchangerUser.webp"},
+    { src: "images/websites/testimonials/FrostchangerUserPopup.webp"},
   ];
 
   const carouselRef = useRef(null);
@@ -115,45 +116,7 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
 
   return (
     <div className="w-full h-fit flex gap-9 flex-wrap justify-center relative z-2 max-[1065px]:gap-0">
-      <div className="w-full max-w-md h-fit max-[1065px]:max-w-[512px] max-[581px]:max-w-full" ref={contentRef}>
-        <motion.p
-          className="smif text-2xl !mb-2 !mt-10"
-          variants={flyInVariants}
-          initial="hidden"
-          animate={isContentInView ? "visible" : "hidden"}
-          custom={0}
-        >
-          {brand}
-        </motion.p>
-        <motion.p
-          className="sf text-lg text-[var(--gray1)] leading-[130%]"
-          variants={flyInVariants}
-          initial="hidden"
-          animate={isContentInView ? "visible" : "hidden"}
-          custom={1}
-        >
-          {desc}
-        </motion.p>
-        <div className="flex flex-row flex-wrap gap-2 !mt-6 max-[1065px]:!mt-4 max-[1065px]:!mb-6">
-          <motion.div
-            variants={flyInVariants}
-            initial="hidden"
-            animate={isContentInView ? "visible" : "hidden"}
-            custom={2}
-          >
-            <CaseButton title={case1} />
-          </motion.div>
-          <motion.div
-            variants={flyInVariants}
-            initial="hidden"
-            animate={isContentInView ? "visible" : "hidden"}
-            custom={3}
-          >
-            <CaseButton title={case2} />
-          </motion.div>
-        </div>
-      </div>
-      <div className="w-full max-w-lg h-fit flex flex-col gap-2 max-[1065px]:gap-[10px]" ref={mediaRef}>
+      <div className="w-full max-w-lg h-fit flex flex-col gap-2 max-[1065px]:gap-[10px] order-2 min-[1065px]:order-1" ref={mediaRef}>
         <motion.div
           ref={carouselRef}
           {...swipeHandlers}
@@ -173,12 +136,12 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className="w-full h-full absolute top-0 left-0 cursor-pointer hover:!opacity-70 transition-opacity duration-300 ease-out"
+                    className="w-full h-full absolute top-0 left-0 cursor-pointer pointer-events-none hover:!opacity-70 transition-opacity duration-300 ease-out"
                     style={{ zIndex: 20 }}
                     onClick={handleVideoToggle}
                   >
                     <img
-                      src="images/thumbnails/AresThumbnail.webp"
+                      src="images/thumbnails/commingsoon.webp"
                       alt="Video thumbnail"
                       className="w-full h-full object-cover"
                     />
@@ -193,16 +156,17 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
                     className="w-full h-full absolute top-0 left-0"
                     style={{ zIndex: 10 }}
                   >
-                    <iframe
+                   <iframe
                       width="100%"
                       height="100%"
-                      src={`https://www.youtube.com/embed/G7qvBdtHAO4?autoplay=1&modestbranding=1&rel=0&controls=1&color=white`}
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&modestbranding=1&rel=0&controls=1&color=white"
                       title="YouTube video player"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="w-full h-full"
                     ></iframe>
+
                   </motion.div>
                 )}
               </>
@@ -224,7 +188,7 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
                     <div key={index} className="w-full h-full flex-shrink-0">
                       <img
                         src={image.src}
-                        alt={image.alt}
+                        alt="website"
                         className="w-full h-full object-cover"
                         draggable="false"
                       />
@@ -292,12 +256,12 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
                   exit="exit"
                   className="circle-none"
                 >
-                  <TestimonialButton
+                  {/* <TestimonialButton
                     title={isSmallScreen ? "" : isVideoPlaying ? "Pause" : "Play video"}
                     src={isVideoPlaying ? "images/svgs/Pause.svg" : "images/svgs/Play.svg"}
                     isActive={true}
                     onClick={handleVideoToggle}
-                  />
+                  /> */}
                 </motion.div>
               )}
               {activeTab === "Website" && (
@@ -327,6 +291,44 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
           </motion.div>
         </div>
       </div>
+      <div className="w-full max-w-md h-fit max-[1065px]:max-w-[512px] max-[581px]:max-w-full order-1 min-[1065px]:order-2" ref={contentRef}>
+        <motion.p
+          className="smif text-2xl !mb-2 !mt-10"
+          variants={flyInVariants}
+          initial="hidden"
+          animate={isContentInView ? "visible" : "hidden"}
+          custom={0}
+        >
+          {brand}
+        </motion.p>
+        <motion.p
+          className="sf text-lg text-[var(--gray1)] leading-[130%]"
+          variants={flyInVariants}
+          initial="hidden"
+          animate={isContentInView ? "visible" : "hidden"}
+          custom={1}
+        >
+          {desc}
+        </motion.p>
+        <div className="flex flex-row flex-wrap gap-2 !mt-6 max-[1065px]:!mt-4 max-[1065px]:!mb-6">
+          <motion.div
+            variants={flyInVariants}
+            initial="hidden"
+            animate={isContentInView ? "visible" : "hidden"}
+            custom={2}
+          >
+            <CaseButton title={case1} />
+          </motion.div>
+          <motion.div
+            variants={flyInVariants}
+            initial="hidden"
+            animate={isContentInView ? "visible" : "hidden"}
+            custom={3}
+          >
+            <CaseButton title={case2} />
+          </motion.div>
+        </div>
+      </div>
       <style>
         {`
           .carousel-container {
@@ -352,18 +354,13 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relativy w-full h-fit bg-[var(--gray4)] border border-[var(--gray3)] rounded-[16px] !p-4 hidden max-[1065px]:block max-[1065px]:!mt-[10px] max-[1065px]:max-w-[512px]"
+            className="relative w-full h-fit bg-[var(--gray4)] border border-[var(--gray3)] rounded-[16px] !p-4 hidden max-[1065px]:block max-[1065px]:!mt-[10px] max-[1065px]:order-3 max-[1065px]:max-w-[512px]"
           >
             <div className="flex flex-col gap-1.5">
               <TestimonialLink
-                title="sproutmarketing.xyz"
-                link="https://sproutmarketing.xyz"
-                src="images/svgs/Link.svg"
-              />
-              <TestimonialLink
-                title="citizens.sproutmarketing.xyz"
-                link="https://citizens.sproutmarketing.xyz"
-                src="images/svgs/Link.svg"
+                title="Websites are in development"
+                link=""
+                src="images/svgs/Star.svg"
               />
             </div>
           </motion.div>
@@ -379,13 +376,12 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
             exit="exit"
             className="absolute bottom-[-13px] h-fit bg-[var(--gray4)] border border-[var(--gray3)] rounded-[16px] !p-4 max-[1065px]:hidden"
             style={{
-              left: 0,
-              right: -10,
+              left: -10,
+              right: 0,
               zIndex: -20,
             }}
           >
             <div className="flex flex-col gap-1.5 opacity-0">
-              <TestimonialLink title="s" />
               <TestimonialLink title="s" />
             </div>
           </motion.div>
@@ -399,23 +395,18 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute bottom-[-13px] h-fit !p-4 !pl-5 max-[1065px]:hidden"
+            className="absolute bottom-[-13px] h-fit !p-4 !pr-5 max-[1065px]:hidden flex justify-end"
             style={{
-              left: 0,
-              right: -10,
+              left: -10,
+              right: 0,
               zIndex: 2,
             }}
           >
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1.5 items-end pointer-events-none">
               <TestimonialLink
-                title="sproutmarketing.xyz"
-                link="https://sproutmarketing.xyz"
-                src="images/svgs/Link.svg"
-              />
-              <TestimonialLink
-                title="citizens.sproutmarketing.xyz"
-                link="https://citizens.sproutmarketing.xyz"
-                src="images/svgs/Link.svg"
+                title="Websites are in development"
+                link=""
+                src="images/svgs/Star.svg"
               />
             </div>
           </motion.div>
@@ -425,4 +416,4 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
   );
 };
 
-export default TestimonialRight;
+export default FrostchangerTestimonial;

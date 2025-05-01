@@ -9,7 +9,6 @@ const TestimonialLink = ({ title, link, src }) => {
       >
         <img
           src={src}
-          alt="icon"
           className="w-4 h-4 opacity-40 group-hover:opacity-70 transition-opacity ease-out duration-300"
         />
         <p className="text-[var(--gray1)]/60 sf group-hover:text-[var(--gray1)] transition-colors ease-out duration-300 !pt-[2px]">

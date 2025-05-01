@@ -5,7 +5,7 @@ import CaseButton from "../components/CaseButton.jsx";
 import TestimonialButton from "../buttons/TestimonialButton.jsx";
 import TestimonialLink from "../buttons/TestimonialLink.jsx";
 
-const TestimonialRight = ({ brand, desc, case1, case2 }) => {
+const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
   const [activeTab, setActiveTab] = useState("Testimonial");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
@@ -115,45 +115,7 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
 
   return (
     <div className="w-full h-fit flex gap-9 flex-wrap justify-center relative z-2 max-[1065px]:gap-0">
-      <div className="w-full max-w-md h-fit max-[1065px]:max-w-[512px] max-[581px]:max-w-full" ref={contentRef}>
-        <motion.p
-          className="smif text-2xl !mb-2 !mt-10"
-          variants={flyInVariants}
-          initial="hidden"
-          animate={isContentInView ? "visible" : "hidden"}
-          custom={0}
-        >
-          {brand}
-        </motion.p>
-        <motion.p
-          className="sf text-lg text-[var(--gray1)] leading-[130%]"
-          variants={flyInVariants}
-          initial="hidden"
-          animate={isContentInView ? "visible" : "hidden"}
-          custom={1}
-        >
-          {desc}
-        </motion.p>
-        <div className="flex flex-row flex-wrap gap-2 !mt-6 max-[1065px]:!mt-4 max-[1065px]:!mb-6">
-          <motion.div
-            variants={flyInVariants}
-            initial="hidden"
-            animate={isContentInView ? "visible" : "hidden"}
-            custom={2}
-          >
-            <CaseButton title={case1} />
-          </motion.div>
-          <motion.div
-            variants={flyInVariants}
-            initial="hidden"
-            animate={isContentInView ? "visible" : "hidden"}
-            custom={3}
-          >
-            <CaseButton title={case2} />
-          </motion.div>
-        </div>
-      </div>
-      <div className="w-full max-w-lg h-fit flex flex-col gap-2 max-[1065px]:gap-[10px]" ref={mediaRef}>
+      <div className="w-full max-w-lg h-fit flex flex-col gap-2 max-[1065px]:gap-[10px] order-2 min-[1065px]:order-1" ref={mediaRef}>
         <motion.div
           ref={carouselRef}
           {...swipeHandlers}
@@ -327,6 +289,44 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
           </motion.div>
         </div>
       </div>
+      <div className="w-full max-w-md h-fit max-[1065px]:max-w-[512px] max-[581px]:max-w-full order-1 min-[1065px]:order-2" ref={contentRef}>
+        <motion.p
+          className="smif text-2xl !mb-2 !mt-10"
+          variants={flyInVariants}
+          initial="hidden"
+          animate={isContentInView ? "visible" : "hidden"}
+          custom={0}
+        >
+          {brand}
+        </motion.p>
+        <motion.p
+          className="sf text-lg text-[var(--gray1)] leading-[130%]"
+          variants={flyInVariants}
+          initial="hidden"
+          animate={isContentInView ? "visible" : "hidden"}
+          custom={1}
+        >
+          {desc}
+        </motion.p>
+        <div className="flex flex-row flex-wrap gap-2 !mt-6 max-[1065px]:!mt-4 max-[1065px]:!mb-6">
+          <motion.div
+            variants={flyInVariants}
+            initial="hidden"
+            animate={isContentInView ? "visible" : "hidden"}
+            custom={2}
+          >
+            <CaseButton title={case1} />
+          </motion.div>
+          <motion.div
+            variants={flyInVariants}
+            initial="hidden"
+            animate={isContentInView ? "visible" : "hidden"}
+            custom={3}
+          >
+            <CaseButton title={case2} />
+          </motion.div>
+        </div>
+      </div>
       <style>
         {`
           .carousel-container {
@@ -352,7 +352,7 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relativy w-full h-fit bg-[var(--gray4)] border border-[var(--gray3)] rounded-[16px] !p-4 hidden max-[1065px]:block max-[1065px]:!mt-[10px] max-[1065px]:max-w-[512px]"
+            className="relative w-full h-fit bg-[var(--gray4)] border border-[var(--gray3)] rounded-[16px] !p-4 hidden max-[1065px]:block max-[1065px]:!mt-[10px] max-[1065px]:order-3 max-[1065px]:max-w-[512px]"
           >
             <div className="flex flex-col gap-1.5">
               <TestimonialLink
@@ -379,8 +379,8 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
             exit="exit"
             className="absolute bottom-[-13px] h-fit bg-[var(--gray4)] border border-[var(--gray3)] rounded-[16px] !p-4 max-[1065px]:hidden"
             style={{
-              left: 0,
-              right: -10,
+              left: -10,
+              right: 0,
               zIndex: -20,
             }}
           >
@@ -399,14 +399,14 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute bottom-[-13px] h-fit !p-4 !pl-5 max-[1065px]:hidden"
+            className="absolute bottom-[-13px] h-fit !p-4 !pr-5 max-[1065px]:hidden flex justify-end"
             style={{
-              left: 0,
-              right: -10,
+              left: -10,
+              right: 0,
               zIndex: 2,
             }}
           >
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1.5 items-end">
               <TestimonialLink
                 title="sproutmarketing.xyz"
                 link="https://sproutmarketing.xyz"
@@ -425,4 +425,4 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
   );
 };
 
-export default TestimonialRight;
+export default TestimonialLeft;

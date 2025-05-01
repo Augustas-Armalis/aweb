@@ -5,7 +5,7 @@ import CaseButton from "../components/CaseButton.jsx";
 import TestimonialButton from "../buttons/TestimonialButton.jsx";
 import TestimonialLink from "../buttons/TestimonialLink.jsx";
 
-const TestimonialRight = ({ brand, desc, case1, case2 }) => {
+const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
   const [activeTab, setActiveTab] = useState("Testimonial");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
@@ -16,9 +16,8 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
   const [isReverseStagger, setIsReverseStagger] = useState(false);
 
   const images = [
-    { src: "images/websites/testimonials/PlazmaHero.webp", alt: "Image 1" },
-    { src: "images/thumbnails/AresThumbnail.webp", alt: "Image 2" },
-    { src: "images/thumbnails/AresThumbnail.webp", alt: "Image 3" },
+    { src: "images/websites/testimonials/CopywizHero.webp", alt: "Image 1" },
+    { src: "images/websites/testimonials/CopywizWebsite.webp", alt: "Image 2" },
   ];
 
   const carouselRef = useRef(null);
@@ -178,7 +177,7 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
                     onClick={handleVideoToggle}
                   >
                     <img
-                      src="images/thumbnails/AresThumbnail.webp"
+                      src="images/thumbnails/CopywizThumbnail.webp"
                       alt="Video thumbnail"
                       className="w-full h-full object-cover"
                     />
@@ -196,13 +195,14 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
                     <iframe
                       width="100%"
                       height="100%"
-                      src={`https://www.youtube.com/embed/G7qvBdtHAO4?autoplay=1&modestbranding=1&rel=0&controls=1&color=white`}
+                      src="https://www.youtube.com/embed/dtAoDQiWrgA?autoplay=1&modestbranding=1&rel=0&controls=1&color=white"
                       title="YouTube video player"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="w-full h-full"
                     ></iframe>
+
                   </motion.div>
                 )}
               </>
@@ -356,14 +356,9 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
           >
             <div className="flex flex-col gap-1.5">
               <TestimonialLink
-                title="sproutmarketing.xyz"
-                link="https://sproutmarketing.xyz"
-                src="images/svgs/Link.svg"
-              />
-              <TestimonialLink
-                title="citizens.sproutmarketing.xyz"
-                link="https://citizens.sproutmarketing.xyz"
-                src="images/svgs/Link.svg"
+                title="View web design"
+                link="https://www.figma.com/proto/S1XZ5wfmbugiabyb4b3NMX/CopyWiz?page-id=0%3A1&node-id=144-2284&viewport=1466%2C1583%2C0.21&t=Ry2QJJkVoweM0UYd-1&scaling=min-zoom&content-scaling=fixed"
+                src="images/svgs/Figma.svg"
               />
             </div>
           </motion.div>
@@ -386,7 +381,6 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
           >
             <div className="flex flex-col gap-1.5 opacity-0">
               <TestimonialLink title="s" />
-              <TestimonialLink title="s" />
             </div>
           </motion.div>
         )}
@@ -408,14 +402,9 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
           >
             <div className="flex flex-col gap-1.5">
               <TestimonialLink
-                title="sproutmarketing.xyz"
-                link="https://sproutmarketing.xyz"
-                src="images/svgs/Link.svg"
-              />
-              <TestimonialLink
-                title="citizens.sproutmarketing.xyz"
-                link="https://citizens.sproutmarketing.xyz"
-                src="images/svgs/Link.svg"
+                title="View web design"
+                link="https://www.figma.com/proto/S1XZ5wfmbugiabyb4b3NMX/CopyWiz?page-id=0%3A1&node-id=144-2284&viewport=1466%2C1583%2C0.21&t=Ry2QJJkVoweM0UYd-1&scaling=min-zoom&content-scaling=fixed"
+                src="images/svgs/Figma.svg"
               />
             </div>
           </motion.div>
@@ -425,4 +414,4 @@ const TestimonialRight = ({ brand, desc, case1, case2 }) => {
   );
 };
 
-export default TestimonialRight;
+export default CopywizTestimonial;
