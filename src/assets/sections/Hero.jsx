@@ -3,7 +3,6 @@ import HeroButtons from "../components/HeroButtons"
 import TopLogo from "../components/TopLogo.jsx"
 import InfiniteSliders from "../components/InfiniteSliders.jsx"
 import RecentBrands from "../components/RecentBrands.jsx"
-// import RecentBrandsMobile from "../components/RecentBrandsMobile.jsx"
 
 const Hero = () => {
 
@@ -18,7 +17,6 @@ const Hero = () => {
                 <InfiniteSliders />
 
                 <RecentBrands />
-                {/* <RecentBrandsMobile /> */}
             </div>
 
 

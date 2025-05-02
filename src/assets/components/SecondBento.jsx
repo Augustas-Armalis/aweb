@@ -155,27 +155,40 @@ const SecondBento = () => {
     },
   };
 
-  const handleHoverStart = () => {
-    if (!isActive) {
-      if (augustasVideoRef.current) {
-        augustasVideoRef.current.play().catch((error) => {
-          console.error("Error playing Augustas video on hover:", error);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (augustasVideoRef.current) {
+              augustasVideoRef.current.play().catch((error) => {
+                console.error("Error playing Augustas video:", error);
+              });
+            }
+            if (danielVideoRef.current) {
+              danielVideoRef.current.play().catch((error) => {
+                console.error("Error playing Daniel video:", error);
+              });
+            }
+          } else {
+            if (augustasVideoRef.current) augustasVideoRef.current.pause();
+            if (danielVideoRef.current) danielVideoRef.current.pause();
+          }
         });
-      }
-      if (danielVideoRef.current) {
-        danielVideoRef.current.play().catch((error) => {
-          console.error("Error playing Daniel video on hover:", error);
-        });
-      }
-    }
-  };
+      },
+      { threshold: 0.1 }
+    );
 
-  const handleHoverEnd = () => {
-    if (!isActive) {
-      if (augustasVideoRef.current) augustasVideoRef.current.pause();
-      if (danielVideoRef.current) danielVideoRef.current.pause();
+    if (bentoRef.current) {
+      observer.observe(bentoRef.current);
     }
-  };
+
+    return () => {
+      if (bentoRef.current) {
+        observer.unobserve(bentoRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -187,59 +200,11 @@ const SecondBento = () => {
     return () => document.removeEventListener("click", handleOutsideClick);
   }, []);
 
-  useEffect(() => {
-    if (isActive) {
-      if (augustasVideoRef.current) {
-        augustasVideoRef.current.play().catch((error) => {
-          console.error("Error playing Augustas video on active:", error);
-        });
-      }
-      if (danielVideoRef.current) {
-        danielVideoRef.current.play().catch((error) => {
-          console.error("Error playing Daniel video on active:", error);
-        });
-      }
-    } else {
-      if (augustasVideoRef.current) augustasVideoRef.current.pause();
-      if (danielVideoRef.current) danielVideoRef.current.pause();
-    }
-  }, [isActive]);
-
-  useEffect(() => {
-    const playBriefly = (videoRef, name) => {
-      if (videoRef.current) {
-        const video = videoRef.current;
-        const onLoaded = () => {
-          console.log(`${name} video loaded`);
-          video
-            .play()
-            .then(() => {
-              console.log(`${name} video playing for 0.1s`);
-              setTimeout(() => {
-                video.pause();
-                console.log(`${name} video paused after 0.1s`);
-              }, 100);
-            })
-            .catch((error) => {
-              console.error(`Error playing ${name} video on load:`, error);
-            });
-        };
-        video.addEventListener("loadeddata", onLoaded);
-        return () => video.removeEventListener("loadeddata", onLoaded);
-      }
-    };
-
-    playBriefly(augustasVideoRef, "Augustas");
-    playBriefly(danielVideoRef, "Daniel");
-  }, []);
-
   return (
     <motion.div
       ref={bentoRef}
       className="w-[326px] max-[1069px]:w-[327px] h-[327px] bg-black border border-[var(--gray3)] max-[450px]:w-full !p-[20px] rounded-[16px] z-20 relative overflow-hidden"
       whileHover="active"
-      onHoverStart={handleHoverStart}
-      onHoverEnd={handleHoverEnd}
       onClick={() => setIsActive(true)}
       animate={isActive ? "active" : "rest"}
       initial="rest"
@@ -271,6 +236,7 @@ const SecondBento = () => {
               muted
               loop
               playsInline
+              autoPlay
             />
           </motion.div>
           <motion.div
@@ -298,6 +264,7 @@ const SecondBento = () => {
               muted
               loop
               playsInline
+              autoPlay
             />
           </motion.div>
           <motion.div

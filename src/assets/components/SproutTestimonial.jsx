@@ -164,77 +164,77 @@ const SproutTestimonial = ({ brand, desc, case1, case2 }) => {
           custom={isReverseStagger ? 0 : 3}
         >
           <AnimatePresence mode="wait">
-            {activeTab === "Testimonial" && (
-              <>
-                {!isVideoPlaying ? (
-                  <motion.div
-                    key="thumbnail"
-                    variants={contentVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    className="w-full h-full absolute top-0 left-0 cursor-pointer hover:!opacity-70 transition-opacity duration-300 ease-out"
-                    style={{ zIndex: 20 }}
-                    onClick={handleVideoToggle}
-                  >
-                    <img
-                      src="images/thumbnails/AresThumbnail.webp"
-                      alt="Video thumbnail"
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="video"
-                    variants={contentVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    className="w-full h-full absolute top-0 left-0"
-                    style={{ zIndex: 10 }}
-                  >
-                   <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://www.youtube.com/embed/G7qvBdtHAO4?autoplay=1&mute=1&modestbranding=1&rel=0&controls=1&color=white"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  ></iframe>
+  {activeTab === "Testimonial" && (
+    <>
+      <motion.div
+        key="thumbnail"
+        variants={contentVariants}
+        initial="hidden"
+        animate={isVideoPlaying ? "hidden" : "visible"}
+        exit="exit"
+        className="w-full h-full absolute top-0 left-0 cursor-pointer hover:!opacity-70 transition-opacity duration-300 ease-out"
+        style={{ zIndex: isVideoPlaying ? 10 : 20 }}
+        onClick={handleVideoToggle}
+      >
+        <img
+          src="images/thumbnails/AresThumbnail.webp"
+          alt="Video thumbnail"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
 
-                  </motion.div>
-                )}
-              </>
-            )}
-            {activeTab === "Website" && (
-              <motion.div
-                key="website"
-                variants={contentVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="w-full h-full relative"
-              >
-                <div
-                  className="w-full h-full flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-                >
-                  {images.map((image, index) => (
-                    <div key={index} className="w-full h-full flex-shrink-0">
-                      <img
-                        src={image.src}
-                        alt="Website"
-                        className="w-full h-full object-cover"
-                        draggable="false"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+      <motion.div
+        key="video"
+        variants={contentVariants}
+        initial="hidden"
+        animate={isVideoPlaying ? "visible" : "hidden"}
+        exit="exit"
+        className="w-full h-full absolute top-0 left-0"
+        style={{ zIndex: isVideoPlaying ? 20 : 10 }}
+      >
+        {isVideoPlaying && (
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/G7qvBdtHAO4?autoplay=1&mute=1&modestbranding=1&rel=0&controls=1&color=white"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          ></iframe>
+        )}
+      </motion.div>
+    </>
+  )}
+  {activeTab === "Website" && (
+    <motion.div
+      key="website"
+      variants={contentVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-full h-full relative"
+    >
+      <div
+        className="w-full h-full flex transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+      >
+        {images.map((image, index) => (
+          <div key={index} className="w-full h-full flex-shrink-0">
+            <img
+              src={image.src}
+              alt="Website"
+              className="w-full h-full object-cover"
+              draggable="false"
+            />
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
         </motion.div>
         <div className="flex flex-row justify-between order-2 min-[1065px]:order-1">
           <div className="flex flex-row gap-2 circle-none flex-wrap">

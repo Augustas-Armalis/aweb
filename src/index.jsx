@@ -2,8 +2,11 @@ import Hero from "./assets/sections/Hero"
 import Bento from "./assets/sections/Bento"
 import FlyingCircle from "./assets/components/FlyingCircle"
 import Testimonials from "./assets/sections/Testimonials";
+import Pricing from "./assets/sections/Pricing";
 
 function HomePage() {
+
+  const spots = 1;
 
   return (
     <>
@@ -16,6 +19,7 @@ function HomePage() {
         <Hero/>
         <Bento/>
         <Testimonials/>
+        <Pricing spots={spots}/>
         
       </div>
 
