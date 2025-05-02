@@ -265,7 +265,7 @@ const SproutTestimonial = ({ brand, desc, case1, case2 }) => {
             >
               <TestimonialButton
                 title="Website"
-                src="images/svgs/Star.svg"
+                src="images/svgs/Website.svg"
                 isActive={activeTab === "Website"}
                 onClick={() => {
                   setActiveTab("Website");

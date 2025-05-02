@@ -20,7 +20,7 @@ const TestimonialButton = ({ title, src, isActive = false, onClick }) => {
         className={`w-4 h-4 circle-none ${isActive ? "" : "opacity-70"} transition-opacity duration-200`} 
       />
       {hasTitle && (
-        <p className={`smif text-[18px] ${isActive ? "" : "alt"} leading-[115%] z-20 h-4 !mb-[4px] !mt-[2px]`}>
+        <p className={`smif text-[18px] ${isActive ? "" : "alt"} leading-[115%] z-20 h-4 !mb-[5px] !mt-[1px]`}>
           {title}
         </p>
       )}

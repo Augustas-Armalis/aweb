@@ -18,8 +18,6 @@ const FrostchangerTestimonial = ({ brand, desc, case1, case2 }) => {
   const images = [
     { src: "images/websites/testimonials/FrostchangerAdminDark.webp"},
     { src: "images/websites/testimonials/FrostchangerAdminLight.webp"},
-    { src: "images/websites/testimonials/FrostchangerUser.webp"},
-    { src: "images/websites/testimonials/FrostchangerUserPopup.webp"},
   ];
 
   const carouselRef = useRef(null);
@@ -228,7 +226,7 @@ const FrostchangerTestimonial = ({ brand, desc, case1, case2 }) => {
             >
               <TestimonialButton
                 title="Website"
-                src="images/svgs/Star.svg"
+                src="images/svgs/Website.svg"
                 isActive={activeTab === "Website"}
                 onClick={() => {
                   setActiveTab("Website");

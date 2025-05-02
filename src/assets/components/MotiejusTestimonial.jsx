@@ -1,6 +1,3 @@
-// w-[1000px] relative flex flex-col items-center gap-[92px] !mx-8 h-fit max-[1064px]:w-full max-[548px]:!mx-4 max-[1065px]:gap-[64px]
-
-
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
@@ -8,7 +5,7 @@ import CaseButton from "../components/CaseButton.jsx";
 import TestimonialButton from "../buttons/TestimonialButton.jsx";
 import TestimonialLink from "../buttons/TestimonialLink.jsx";
 
-const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
+const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
   const [activeTab, setActiveTab] = useState("Testimonial");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
@@ -19,8 +16,7 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
   const [isReverseStagger, setIsReverseStagger] = useState(false);
 
   const images = [
-    { src: "images/websites/testimonials/CopywizHero.webp", alt: "Image 1" },
-    { src: "images/websites/testimonials/CopywizWebsite.webp", alt: "Image 2" },
+    { src: "images/websites/testimonials/MotiejusHero.webp", alt: "Image 1" }
   ];
 
   const carouselRef = useRef(null);
@@ -117,45 +113,7 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
 
   return (
     <div className="w-full h-fit flex gap-9 flex-wrap justify-center relative z-2 max-[1065px]:gap-0">
-      <div className="w-full max-w-md h-fit max-[1065px]:max-w-[512px] max-[581px]:max-w-full" ref={contentRef}>
-        <motion.p
-          className="smif text-2xl !mb-2 !mt-10"
-          variants={flyInVariants}
-          initial="hidden"
-          animate={isContentInView ? "visible" : "hidden"}
-          custom={0}
-        >
-          {brand}
-        </motion.p>
-        <motion.p
-          className="sf text-lg text-[var(--gray1)] leading-[130%]"
-          variants={flyInVariants}
-          initial="hidden"
-          animate={isContentInView ? "visible" : "hidden"}
-          custom={1}
-        >
-          {desc}
-        </motion.p>
-        <div className="flex flex-row flex-wrap gap-2 !mt-6 max-[1065px]:!mt-4 max-[1065px]:!mb-6">
-          <motion.div
-            variants={flyInVariants}
-            initial="hidden"
-            animate={isContentInView ? "visible" : "hidden"}
-            custom={2}
-          >
-            <CaseButton title={case1} />
-          </motion.div>
-          <motion.div
-            variants={flyInVariants}
-            initial="hidden"
-            animate={isContentInView ? "visible" : "hidden"}
-            custom={3}
-          >
-            <CaseButton title={case2} />
-          </motion.div>
-        </div>
-      </div>
-      <div className="w-full max-w-lg h-fit flex flex-col gap-2 max-[1065px]:gap-[10px]" ref={mediaRef}>
+      <div className="w-full max-w-lg h-fit flex flex-col gap-2 max-[1065px]:gap-[10px] order-2 min-[1065px]:order-1" ref={mediaRef}>
         <motion.div
           ref={carouselRef}
           {...swipeHandlers}
@@ -180,7 +138,7 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                     onClick={handleVideoToggle}
                   >
                     <img
-                      src="images/thumbnails/CopywizThumbnail.webp"
+                      src="images/thumbnails/MotiejusThumbnail.webp"
                       alt="Video thumbnail"
                       className="w-full h-full object-cover"
                     />
@@ -196,15 +154,15 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                     style={{ zIndex: 10 }}
                   >
                     <iframe
-                      width="100%"
-                      height="100%"
-                      src="https://www.youtube.com/embed/dtAoDQiWrgA?autoplay=1&modestbranding=1&rel=0&controls=1&color=white"
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/kZNutM6e_9c?autoplay=1&modestbranding=1&rel=0&controls=1&color=white"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  ></iframe>
 
                   </motion.div>
                 )}
@@ -312,7 +270,7 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                   exit="exit"
                   className="flex gap-2 circle-none"
                 >
-                  <TestimonialButton
+                  {/* <TestimonialButton
                     title=""
                     src="images/svgs/LeftArrow.svg"
                     isActive={true}
@@ -323,10 +281,48 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                     src="images/svgs/RightArrow.svg"
                     isActive={true}
                     onClick={handleNextImage}
-                  />
+                  /> */}
                 </motion.div>
               )}
             </AnimatePresence>
+          </motion.div>
+        </div>
+      </div>
+      <div className="w-full max-w-md h-fit max-[1065px]:max-w-[512px] max-[581px]:max-w-full order-1 min-[1065px]:order-2" ref={contentRef}>
+        <motion.p
+          className="smif text-2xl !mb-2 !mt-10"
+          variants={flyInVariants}
+          initial="hidden"
+          animate={isContentInView ? "visible" : "hidden"}
+          custom={0}
+        >
+          {brand}
+        </motion.p>
+        <motion.p
+          className="sf text-lg text-[var(--gray1)] leading-[130%]"
+          variants={flyInVariants}
+          initial="hidden"
+          animate={isContentInView ? "visible" : "hidden"}
+          custom={1}
+        >
+          {desc}
+        </motion.p>
+        <div className="flex flex-row flex-wrap gap-2 !mt-6 max-[1065px]:!mt-4 max-[1065px]:!mb-6">
+          <motion.div
+            variants={flyInVariants}
+            initial="hidden"
+            animate={isContentInView ? "visible" : "hidden"}
+            custom={2}
+          >
+            <CaseButton title={case1} />
+          </motion.div>
+          <motion.div
+            variants={flyInVariants}
+            initial="hidden"
+            animate={isContentInView ? "visible" : "hidden"}
+            custom={3}
+          >
+            <CaseButton title={case2} />
           </motion.div>
         </div>
       </div>
@@ -355,12 +351,12 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relativy w-full h-fit bg-[var(--gray4)] border border-[var(--gray3)] rounded-[16px] !p-4 hidden max-[1065px]:block max-[1065px]:!mt-[10px] max-[1065px]:max-w-[512px]"
+            className="relative w-full h-fit bg-[var(--gray4)] border border-[var(--gray3)] rounded-[16px] !p-4 hidden max-[1065px]:block max-[1065px]:!mt-[10px] max-[1065px]:order-3 max-[1065px]:max-w-[512px]"
           >
             <div className="flex flex-col gap-1.5">
-              <TestimonialLink
+            <TestimonialLink
                 title="View the design"
-                link="https://www.figma.com/proto/S1XZ5wfmbugiabyb4b3NMX/CopyWiz?page-id=0%3A1&node-id=144-2284&viewport=1466%2C1583%2C0.21&t=Ry2QJJkVoweM0UYd-1&scaling=min-zoom&content-scaling=fixed"
+                link="https://www.figma.com/proto/pvhmPzSkD4Tq4S7pP1if8G/Motiejus-Website?page-id=0%3A1&node-id=0-221&viewport=-69%2C-997%2C0.79&t=52tlLx2crz2QqnsO-1&scaling=min-zoom&content-scaling=fixed"
                 src="images/svgs/Figma.svg"
               />
             </div>
@@ -377,8 +373,8 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
             exit="exit"
             className="absolute bottom-[-13px] h-fit bg-[var(--gray4)] border border-[var(--gray3)] rounded-[16px] !p-4 max-[1065px]:hidden"
             style={{
-              left: 0,
-              right: -10,
+              left: -10,
+              right: 0,
               zIndex: -20,
             }}
           >
@@ -396,17 +392,17 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute bottom-[-13px] h-fit !p-4 !pl-5 max-[1065px]:hidden"
+            className="absolute bottom-[-13px] h-fit !p-4 !pr-5 max-[1065px]:hidden flex justify-end"
             style={{
-              left: 0,
-              right: -10,
+              left: -10,
+              right: 0,
               zIndex: 2,
             }}
           >
-            <div className="flex flex-col gap-1.5">
-              <TestimonialLink
+            <div className="flex flex-col gap-1.5 items-end">
+            <TestimonialLink
                 title="View the design"
-                link="https://www.figma.com/proto/S1XZ5wfmbugiabyb4b3NMX/CopyWiz?page-id=0%3A1&node-id=144-2284&viewport=1466%2C1583%2C0.21&t=Ry2QJJkVoweM0UYd-1&scaling=min-zoom&content-scaling=fixed"
+                link="https://www.figma.com/proto/pvhmPzSkD4Tq4S7pP1if8G/Motiejus-Website?page-id=0%3A1&node-id=0-221&viewport=-69%2C-997%2C0.79&t=52tlLx2crz2QqnsO-1&scaling=min-zoom&content-scaling=fixed"
                 src="images/svgs/Figma.svg"
               />
             </div>
@@ -417,4 +413,4 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
   );
 };
 
-export default CopywizTestimonial;
+export default TestimonialLeft;
