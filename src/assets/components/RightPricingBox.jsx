@@ -20,7 +20,8 @@ const RightPricingBox = () => {
   }, []);
 
   return (
-    <div className="w-[327px] h-fit bg-black border border-[var(--gray3)] max-[450px]:w-full !p-[16px] rounded-[16px]">
+    <div className="w-[327px] h-fit bg-[var(--gray4)]/0 border border-[var(--gray3)] max-[450px]:w-full !p-[16px] rounded-[16px] hover:bg-[var(--gray4)]/45 transition-colors ease-out duration-400">
+
       <div className="flex flex-col gap-1">
         <PricingTopBar
           title="Front-end services"
@@ -33,7 +34,7 @@ const RightPricingBox = () => {
         <div className="flex justify-between !mt-3">
           <p className="smif text-[22px] ">Enterprise</p>
           <p className="smif text-[20px]">
-            €5K<span className="alt !ml-[2px]">+</span>
+            €3K<span className="alt !ml-[2px]">+</span>
           </p>
         </div>
 

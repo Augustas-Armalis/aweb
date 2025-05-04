@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const SpotsLeft = ({ spots }) => {
+const SpotsLeft = ({ spots, className }) => {
   // Get current and next month
   const currentDate = new Date();
   const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
@@ -56,7 +56,7 @@ const SpotsLeft = ({ spots }) => {
   const isInView = useInView(ref, { once: true, amount: 0.5 }); // Trigger when 50% of the component is visible, only once
 
   return (
-    <div ref={ref} className="flex flex-col items-center justify-center">
+    <div ref={ref} className="flex flex-col items-center justify-center ">
       <motion.div
         custom={0}
         variants={containerVariants}
@@ -85,7 +85,7 @@ const SpotsLeft = ({ spots }) => {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="sf text-[15px] spots-below"
+        className={`sf text-[15px] spots-below ${className}`}
       >
         taking up to 3 per month
       </motion.p>

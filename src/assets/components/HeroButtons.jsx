@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { getCalApi } from '@calcom/embed-react';
+import { useEffect } from 'react';
 import ButterflyBtn from '../buttons/ButterflyBtn.jsx';
 import MainBtn from '../buttons/MainBtn.jsx';
 
@@ -16,9 +18,22 @@ const buttonVariants = {
 };
 
 const HeroButtons = () => {
+  // Initialize Cal.com SDK for the ButterflyBtn
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: '15min' });
+      cal('ui', {
+        cssVarsPerTheme: {
+          light: { 'cal-brand': '#ffffff' },
+          dark: { 'cal-brand': '#fafafa' },
+        },
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+      });
+    })();
+  }, []);
 
   return (
-
     <div className="flex gap-2">
       <motion.div
         custom={0}
@@ -26,7 +41,7 @@ const HeroButtons = () => {
         initial="hidden"
         animate="visible"
       >
-        <ButterflyBtn title="Let's talk" href="#"/>
+        <ButterflyBtn title="Let's talk" />
       </motion.div>
       <motion.div
         custom={1}
@@ -34,12 +49,11 @@ const HeroButtons = () => {
         initial="hidden"
         animate="visible"
       >
-        <MainBtn title="Pricing" href="#"/>
+        <MainBtn title="Pricing" targetId="pricing" />
+
       </motion.div>
     </div>
-
   );
-
 };
 
 export default HeroButtons;

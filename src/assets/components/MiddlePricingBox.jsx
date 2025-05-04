@@ -20,7 +20,7 @@ const MiddlePricingBox = () => {
   }, []);
 
   return (
-    <div className="w-[326px] h-fit bg-[var(--gray4)]/80 border border-[var(--gray3)] max-[450px]:w-full !p-[16px] rounded-[16px]">
+    <div className="w-[326px] h-fit bg-[var(--gray4)]/80 border border-[var(--gray3)] max-[450px]:w-full !p-[16px] rounded-[16px] hover:bg-[var(--gray4)]/90 transition-colors ease-out duration-400">
       <div className="flex flex-col gap-1">
         <PricingTopBar
           title="Full web-development"
@@ -33,7 +33,7 @@ const MiddlePricingBox = () => {
         <div className="flex justify-between !mt-3">
           <p className="smif text-[22px] ">Landing Page</p>
           <p className="smif text-[20px]">
-            €3K<span className="alt !ml-[2px]">+</span>
+            €2K<span className="alt !ml-[2px]">+</span>
           </p>
         </div>
 

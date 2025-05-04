@@ -21,7 +21,7 @@ const Pricing = ({spots}) => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full !mt-[192px] max-[548px]:!mt-[124px]">
+    <div className="flex items-center justify-center w-full !mt-[192px] max-[548px]:!mt-[124px]" id="pricing">
       <div className="w-[1000px] relative flex flex-col items-center gap-[24px] !mx-8 h-fit max-[1064px]:w-full max-[548px]:!mx-4">
         <div className="flex flex-col gap-[42px]">
           <FlyInTitle title="Our plans are simple" />

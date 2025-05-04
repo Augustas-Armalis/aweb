@@ -69,7 +69,7 @@ const Testimonials = () => {
         </AnimatePresence>
 
         {displayedCount < extraTestimonials.length && (
-        <div className="!mt-[42px] max-[732px]:!mt-0">
+        <div className="!mt-[16px] max-[732px]:!mt-0">
           <motion.div
             ref={buttonRef}
             variants={showMoreButtonVariants}

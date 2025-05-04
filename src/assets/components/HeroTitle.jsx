@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SpotsLeft from "../components/SpotsLeft.jsx";
 
 const titleLetterVariants = {
   hidden: { opacity: 0, y: '40%' },
@@ -45,7 +46,7 @@ const altContainerVariants = {
   },
 };
 
-const HeroTitle = () => {
+const HeroTitle = ({spots}) => {
   const titleLines = [
     'Yes, we build websites',
     'and not regular ones',
@@ -105,7 +106,12 @@ const HeroTitle = () => {
 
   return (
     <>
-      <div className="smif text-[58px] leading-[115%] !mb-4 !mt-[62px] max-[1064px]:text-[50px] max-[548px]:!mt-[36px] max-[548px]:text-[36px] max-[548px]:!mb-2">
+    <div className="flex w-fit !mt-[42px]">
+      <SpotsLeft spots={spots} className="!opacity-0 cursor-default"/>
+    </div>
+
+      <div className="smif text-[58px] leading-[115%] !mb-4  max-[1064px]:text-[50px] max-[548px]:!mt-[36px] max-[548px]:text-[36px] max-[548px]:!mb-2">
+        
         {titleLines.map((line, lineIndex) => (
           <motion.div
             key={lineIndex}

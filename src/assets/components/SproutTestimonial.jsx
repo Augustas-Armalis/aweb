@@ -172,7 +172,7 @@ const SproutTestimonial = ({ brand, desc, case1, case2 }) => {
         initial="hidden"
         animate={isVideoPlaying ? "hidden" : "visible"}
         exit="exit"
-        className="w-full h-full absolute top-0 left-0 cursor-pointer hover:!opacity-70 transition-opacity duration-300 ease-out"
+        className="w-full h-full absolute top-0 left-0 cursor-pointer"
         style={{ zIndex: isVideoPlaying ? 10 : 20 }}
         onClick={handleVideoToggle}
       >

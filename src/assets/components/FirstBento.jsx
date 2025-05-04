@@ -82,7 +82,7 @@ const FirstBento = () => {
         variants={smallImageVariants}
       />
 
-      <div className="absolute bottom-0 w-[220px] h-[130px] bg-[#839ABC] rounded-[50%] blur-[120px] z-0" />
+      <div className="absolute bottom-0 w-[250px] h-[120px] bg-[#839ABC] rounded-[50%] blur-[100px] !ml-[20px] z-0 rotate-150" />
     </motion.div>
   );
 };
