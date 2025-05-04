@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 const useWindowSize = () => {
+
   const [windowSize, setWindowSize] = React.useState({
     width: typeof window !== 'undefined' ? window.innerWidth : 0,
   });
@@ -17,9 +18,11 @@ const useWindowSize = () => {
   }, []);
 
   return windowSize;
+
 };
 
 const FlyingCircle = () => {
+
   const { width } = useWindowSize();
   const circleRef = useRef(null);
   const animationFrameRef = useRef(null);
@@ -97,7 +100,6 @@ const FlyingCircle = () => {
     animationFrameRef.current = requestAnimationFrame(tick);
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Function to attach event listeners to all circle-none elements
     const attachListeners = () => {
       const circleDissapearTo = document.querySelectorAll('.circle-none');
       circleDissapearTo.forEach((container) => {
@@ -107,19 +109,15 @@ const FlyingCircle = () => {
       return circleDissapearTo;
     };
 
-    // Initial attachment of listeners
     let currentElements = attachListeners();
 
-    // Set up MutationObserver to watch for DOM changes
     const observer = new MutationObserver(() => {
       const newElements = document.querySelectorAll('.circle-none');
       if (newElements.length !== currentElements.length || Array.from(newElements).some((el, i) => el !== currentElements[i])) {
-        // Remove listeners from old elements
         currentElements.forEach((container) => {
           container.removeEventListener('mouseenter', fadeOutCircle);
           container.removeEventListener('mouseleave', fadeInCircle);
         });
-        // Attach listeners to new elements
         currentElements = attachListeners();
       }
     });
@@ -164,12 +162,15 @@ const FlyingCircle = () => {
   if (width <= 1064) return null;
 
   return (
+
     <div
       ref={circleRef}
       className="fixed w-2.5 h-2.5 bg-white rounded-full pointer-events-none z-[8000] opacity-0"
       style={{ top: '-6px', left: '-6px', color: '#000' }}
     />
+
   );
+
 };
 
 export default FlyingCircle;

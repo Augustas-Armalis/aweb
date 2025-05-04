@@ -2,13 +2,11 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const SpotsLeft = ({ spots, className }) => {
-  // Get current and next month
   const currentDate = new Date();
   const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
   const nextMonthDate = new Date(currentDate.setMonth(currentDate.getMonth() + 1));
   const nextMonth = nextMonthDate.toLocaleString('default', { month: 'long' });
 
-  // Determine text based on spots value
   let displayText = `${spots} spots left this ${currentMonth}`;
   if (spots === 0) {
     displayText = `Save a spot in ${nextMonth}`;

@@ -24,14 +24,17 @@ const titleLineVariants = {
 };
 
 const FlyInTitle = ({ title }) => {
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '0px 0px -50px 0px' });
 
   const splitLineIntoWords = (line) => {
     const words = line.split(' ');
     return words.map((word, wordIndex) => (
+
       <span key={`word-${wordIndex}`} className="inline-block">
         {word.split('').map((char, charIndex) => (
+
           <motion.span
             key={`char-${wordIndex}-${charIndex}`}
             variants={titleLetterVariants}
@@ -42,15 +45,18 @@ const FlyInTitle = ({ title }) => {
           >
             {char}
           </motion.span>
+
         ))}
         {wordIndex < words.length - 1 && (
           <span style={{ display: 'inline-block', whiteSpace: 'pre' }}> </span>
         )}
       </span>
+
     ));
   };
 
   return (
+
     <motion.div
       ref={ref}
       variants={titleLineVariants}
@@ -61,7 +67,9 @@ const FlyInTitle = ({ title }) => {
     >
       {splitLineIntoWords(title)}
     </motion.div>
+
   );
+
 };
 
 export default FlyInTitle;

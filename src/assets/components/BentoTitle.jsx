@@ -24,6 +24,7 @@ const titleLineVariants = {
 };
 
 const BentoTitle = () => {
+
   const title = 'Why Businesses Choose AWeb?';
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '0px 0px -50px 0px' });
@@ -31,10 +32,12 @@ const BentoTitle = () => {
   const splitLineIntoWords = (line) => {
     const words = line.split(' ');
     return words.map((word, wordIndex) => (
+
       <span key={`word-${wordIndex}`} className="inline-block">
         {word.split('').map((char, charIndex) => {
           const isTargetA = wordIndex === words.length - 1 && charIndex === 0 && char === 'A';
           return (
+
             <motion.span
               key={`char-${wordIndex}-${charIndex}`}
               variants={titleLetterVariants}
@@ -47,16 +50,19 @@ const BentoTitle = () => {
             >
               {char}
             </motion.span>
+
           );
         })}
         {wordIndex < words.length - 1 && (
           <span style={{ display: 'inline-block', whiteSpace: 'pre' }}> </span>
         )}
       </span>
+
     ));
   };
 
   return (
+
     <motion.div
       ref={ref}
       variants={titleLineVariants}
@@ -67,7 +73,9 @@ const BentoTitle = () => {
     >
       {splitLineIntoWords(title)}
     </motion.div>
+
   );
+
 };
 
 export default BentoTitle;

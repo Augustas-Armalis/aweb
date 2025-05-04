@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const InfiniteSliders = () => {
+
   const slideWidth = 290;
   const gap = 8;
 
@@ -48,6 +49,7 @@ const InfiniteSliders = () => {
     const staggerDelay = 0.2 + staggerOrder * 0.05;
 
     return (
+
       <motion.div
         key={`top-${uniqueIndex}`}
         className="h-[180px] w-[290px] overflow-hidden rounded-[10px] border border-[var(--gray4)] flex-shrink-0"
@@ -67,6 +69,7 @@ const InfiniteSliders = () => {
           />
         </div>
       </motion.div>
+
     );
   };
 
@@ -75,6 +78,7 @@ const InfiniteSliders = () => {
     const staggerDelay = 0.2 + staggerOrder * 0.05;
 
     return (
+
       <motion.div
         key={`bottom-${uniqueIndex}`}
         className="h-[180px] w-[290px] overflow-hidden rounded-[10px] border border-[var(--gray4)] flex-shrink-0"
@@ -94,6 +98,7 @@ const InfiniteSliders = () => {
           />
         </div>
       </motion.div>
+
     );
   };
 
@@ -109,8 +114,11 @@ const InfiniteSliders = () => {
   const bottomDuration = bottomTotalWidth / (topTotalWidth / 25);
 
   return (
+
     <div className="w-[100vw] h-fit flex flex-col gap-2">
+
       <div className="relative w-full overflow-hidden h-[180px]">
+
         <motion.div
           className="flex flex-row gap-2"
           animate={{
@@ -124,9 +132,11 @@ const InfiniteSliders = () => {
         >
           {triplicatedTopSlides}
         </motion.div>
+
       </div>
 
       <div className="relative w-full overflow-hidden h-[180px]">
+
         <motion.div
           className="flex flex-row gap-2"
           animate={{
@@ -140,9 +150,13 @@ const InfiniteSliders = () => {
         >
           {triplicatedBottomSlides}
         </motion.div>
+
       </div>
+
     </div>
+
   );
+
 };
 
 export default InfiniteSliders;

@@ -1,6 +1,3 @@
-// w-[1000px] relative flex flex-col items-center gap-[92px] !mx-8 h-fit max-[1064px]:w-full max-[548px]:!mx-4 max-[1065px]:gap-[64px]
-
-
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
@@ -9,6 +6,7 @@ import TestimonialButton from "../buttons/TestimonialButton.jsx";
 import TestimonialLink from "../buttons/TestimonialLink.jsx";
 
 const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
+
   const [activeTab, setActiveTab] = useState("Testimonial");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
@@ -116,8 +114,11 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
   };
 
   return (
+
     <div className="w-full h-fit flex gap-9 flex-wrap justify-center relative z-2 max-[1065px]:gap-0">
+
       <div className="w-full max-w-md h-fit max-[1065px]:max-w-[512px] max-[581px]:max-w-full" ref={contentRef}>
+
         <motion.p
           className="smif text-2xl !mb-2 !mt-10"
           variants={flyInVariants}
@@ -127,6 +128,7 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
         >
           {brand}
         </motion.p>
+
         <motion.p
           className="sf text-lg text-[var(--gray1)] leading-[130%]"
           variants={flyInVariants}
@@ -136,7 +138,9 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
         >
           {desc}
         </motion.p>
+
         <div className="flex flex-row flex-wrap gap-2 !mt-6 max-[1065px]:!mt-4 max-[1065px]:!mb-6">
+
           <motion.div
             variants={flyInVariants}
             initial="hidden"
@@ -145,6 +149,7 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
           >
             <CaseButton title={case1} />
           </motion.div>
+
           <motion.div
             variants={flyInVariants}
             initial="hidden"
@@ -153,9 +158,13 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
           >
             <CaseButton title={case2} />
           </motion.div>
+
         </div>
+
       </div>
+
       <div className="w-full max-w-lg h-fit flex flex-col gap-2 max-[1065px]:gap-[10px]" ref={mediaRef}>
+
         <motion.div
           ref={carouselRef}
           {...swipeHandlers}
@@ -165,10 +174,12 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
           animate={isMediaInView ? "visible" : "hidden"}
           custom={isReverseStagger ? 0 : 3}
         >
+
           <AnimatePresence mode="wait">
             {activeTab === "Testimonial" && (
               <>
                 {!isVideoPlaying ? (
+
                   <motion.div
                     key="thumbnail"
                     variants={contentVariants}
@@ -185,7 +196,9 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                       className="w-full h-full object-cover"
                     />
                   </motion.div>
+
                 ) : (
+
                   <motion.div
                     key="video"
                     variants={contentVariants}
@@ -205,12 +218,13 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                       allowFullScreen
                       className="w-full h-full"
                     ></iframe>
-
                   </motion.div>
+
                 )}
               </>
             )}
             {activeTab === "Website" && (
+
               <motion.div
                 key="website"
                 variants={contentVariants}
@@ -224,6 +238,7 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                   style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
                 >
                   {images.map((image, index) => (
+
                     <div key={index} className="w-full h-full flex-shrink-0">
                       <img
                         src={image.src}
@@ -232,14 +247,20 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                         draggable="false"
                       />
                     </div>
+
                   ))}
                 </div>
               </motion.div>
+
             )}
           </AnimatePresence>
+
         </motion.div>
+
         <div className="flex flex-row justify-between order-2 min-[1065px]:order-1">
+
           <div className="flex flex-row gap-2 circle-none flex-wrap">
+
             <motion.div
               variants={flyInVariants}
               initial="hidden"
@@ -259,6 +280,7 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                 }}
               />
             </motion.div>
+
             <motion.div
               variants={flyInVariants}
               initial="hidden"
@@ -278,15 +300,19 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                 }}
               />
             </motion.div>
+
           </div>
+
           <motion.div
             variants={flyInVariants}
             initial="hidden"
             animate={isMediaInView ? "visible" : "hidden"}
             custom={isReverseStagger ? 1 : 2}
           >
+
             <AnimatePresence mode="wait">
               {activeTab === "Testimonial" && (
+
                 <motion.div
                   key="play-video"
                   variants={buttonVariants}
@@ -302,8 +328,10 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                     onClick={handleVideoToggle}
                   />
                 </motion.div>
+
               )}
               {activeTab === "Website" && (
+
                 <motion.div
                   key="website-actions"
                   variants={buttonVariants}
@@ -325,11 +353,16 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                     onClick={handleNextImage}
                   />
                 </motion.div>
+
               )}
             </AnimatePresence>
+
           </motion.div>
+
         </div>
+
       </div>
+
       <style>
         {`
           .carousel-container {
@@ -347,8 +380,10 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
           }
         `}
       </style>
+
       <AnimatePresence>
         {activeTab === "Website" && (
+
           <motion.div
             key="background-rectangle-base"
             variants={rectangleVariants}
@@ -365,10 +400,13 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
               />
             </div>
           </motion.div>
+
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {activeTab === "Website" && (
+
           <motion.div
             key="background-rectangle-base"
             variants={rectangleVariants}
@@ -386,10 +424,13 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
               <TestimonialLink title="s" />
             </div>
           </motion.div>
+
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {activeTab === "Website" && (
+
           <motion.div
             key="background-rectangle-content"
             variants={rectangleVariants}
@@ -411,10 +452,14 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
               />
             </div>
           </motion.div>
+
         )}
       </AnimatePresence>
+
     </div>
+
   );
+
 };
 
 export default CopywizTestimonial;

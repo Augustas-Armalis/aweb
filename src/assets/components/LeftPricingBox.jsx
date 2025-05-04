@@ -1,8 +1,8 @@
+import { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import PricingTopBar from "../components/PricingTopBar.jsx";
 import PricingRow from "../components/PricingRow.jsx";
 import PricingBtn from "../buttons/PricingBtn.jsx";
-import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
 
 const LeftPricingBox = () => {
   useEffect(() => {
@@ -12,7 +12,7 @@ const LeftPricingBox = () => {
         cssVarsPerTheme: {
           light: { "cal-brand": "#ffffff" },
           dark: { "cal-brand": "#fafafa" },
-        },  
+        },
         hideEventTypeDetails: false,
         layout: "month_view",
       });
@@ -31,7 +31,7 @@ const LeftPricingBox = () => {
         />
 
         <div className="flex justify-between !mt-3">
-          <p className="smif text-[22px] ">Website Design</p>
+          <p className="smif text-[22px]">Website Design</p>
           <p className="smif text-[20px]">
             €1K<span className="alt !ml-[2px]">+</span>
           </p>

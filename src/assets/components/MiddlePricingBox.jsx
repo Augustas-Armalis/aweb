@@ -1,8 +1,8 @@
+import { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import PricingTopBar from "../components/PricingTopBar.jsx";
 import PricingRow from "../components/PricingRow.jsx";
 import PricingBtn from "../buttons/PricingBtn.jsx";
-import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
 
 const MiddlePricingBox = () => {
   useEffect(() => {
@@ -12,7 +12,7 @@ const MiddlePricingBox = () => {
         cssVarsPerTheme: {
           light: { "cal-brand": "#ffffff" },
           dark: { "cal-brand": "#fafafa" },
-        },  
+        },
         hideEventTypeDetails: false,
         layout: "month_view",
       });
@@ -31,14 +31,14 @@ const MiddlePricingBox = () => {
         />
 
         <div className="flex justify-between !mt-3">
-          <p className="smif text-[22px] ">Landing Page</p>
+          <p className="smif text-[22px]">Landing Page</p>
           <p className="smif text-[20px]">
             €2K<span className="alt !ml-[2px]">+</span>
           </p>
         </div>
 
         <p className="sf text-[16px] text-[var(--gray1)] leading-[130%] max-w-[220px]">
-        Perfect for Start-ups. Everything included, custom code too
+          Perfect for Start-ups. Everything included, custom code too.
         </p>
 
         <div className="w-full h-[1px] bg-[var(--gray3)] !my-2.5" />

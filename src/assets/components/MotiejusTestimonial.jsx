@@ -5,7 +5,8 @@ import CaseButton from "../components/CaseButton.jsx";
 import TestimonialButton from "../buttons/TestimonialButton.jsx";
 import TestimonialLink from "../buttons/TestimonialLink.jsx";
 
-const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
+const MotiejusTestimonial = ({ brand, desc, case1, case2 }) => {
+
   const [activeTab, setActiveTab] = useState("Testimonial");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
@@ -16,7 +17,7 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
   const [isReverseStagger, setIsReverseStagger] = useState(false);
 
   const images = [
-    { src: "images/websites/testimonials/MotiejusHero.webp", alt: "Image 1" }
+    { src: "images/websites/testimonials/MotiejusHero.webp", alt: "Image 1" },
   ];
 
   const carouselRef = useRef(null);
@@ -112,8 +113,11 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
   };
 
   return (
+
     <div className="w-full h-fit flex gap-9 flex-wrap justify-center relative z-2 max-[1065px]:gap-0">
+
       <div className="w-full max-w-lg h-fit flex flex-col gap-2 max-[1065px]:gap-[10px] order-2 min-[1065px]:order-1" ref={mediaRef}>
+
         <motion.div
           ref={carouselRef}
           {...swipeHandlers}
@@ -123,10 +127,12 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
           animate={isMediaInView ? "visible" : "hidden"}
           custom={isReverseStagger ? 0 : 3}
         >
+
           <AnimatePresence mode="wait">
             {activeTab === "Testimonial" && (
               <>
                 {!isVideoPlaying ? (
+
                   <motion.div
                     key="thumbnail"
                     variants={contentVariants}
@@ -143,7 +149,9 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
                       className="w-full h-full object-cover"
                     />
                   </motion.div>
+
                 ) : (
+
                   <motion.div
                     key="video"
                     variants={contentVariants}
@@ -154,21 +162,22 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
                     style={{ zIndex: 10 }}
                   >
                     <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://www.youtube.com/embed/kZNutM6e_9c?autoplay=1&modestbranding=1&rel=0&controls=1&color=white"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  ></iframe>
-
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/kZNutM6e_9c?autoplay=1&modestbranding=1&rel=0&controls=1&color=white"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
                   </motion.div>
+
                 )}
               </>
             )}
             {activeTab === "Website" && (
+
               <motion.div
                 key="website"
                 variants={contentVariants}
@@ -182,6 +191,7 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
                   style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
                 >
                   {images.map((image, index) => (
+
                     <div key={index} className="w-full h-full flex-shrink-0">
                       <img
                         src={image.src}
@@ -190,14 +200,20 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
                         draggable="false"
                       />
                     </div>
+
                   ))}
                 </div>
               </motion.div>
+
             )}
           </AnimatePresence>
+
         </motion.div>
+
         <div className="flex flex-row justify-between order-2 min-[1065px]:order-1">
+
           <div className="flex flex-row gap-2 circle-none flex-wrap">
+
             <motion.div
               variants={flyInVariants}
               initial="hidden"
@@ -217,6 +233,7 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
                 }}
               />
             </motion.div>
+
             <motion.div
               variants={flyInVariants}
               initial="hidden"
@@ -236,15 +253,19 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
                 }}
               />
             </motion.div>
+
           </div>
+
           <motion.div
             variants={flyInVariants}
             initial="hidden"
             animate={isMediaInView ? "visible" : "hidden"}
             custom={isReverseStagger ? 1 : 2}
           >
+
             <AnimatePresence mode="wait">
               {activeTab === "Testimonial" && (
+
                 <motion.div
                   key="play-video"
                   variants={buttonVariants}
@@ -260,8 +281,10 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
                     onClick={handleVideoToggle}
                   />
                 </motion.div>
+
               )}
               {activeTab === "Website" && (
+
                 <motion.div
                   key="website-actions"
                   variants={buttonVariants}
@@ -283,12 +306,18 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
                     onClick={handleNextImage}
                   /> */}
                 </motion.div>
+
               )}
             </AnimatePresence>
+
           </motion.div>
+
         </div>
+
       </div>
+
       <div className="w-full max-w-md h-fit max-[1065px]:max-w-[512px] max-[581px]:max-w-full order-1 min-[1065px]:order-2" ref={contentRef}>
+
         <motion.p
           className="smif text-2xl !mb-2 !mt-10"
           variants={flyInVariants}
@@ -298,6 +327,7 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
         >
           {brand}
         </motion.p>
+
         <motion.p
           className="sf text-lg text-[var(--gray1)] leading-[130%]"
           variants={flyInVariants}
@@ -307,7 +337,9 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
         >
           {desc}
         </motion.p>
+
         <div className="flex flex-row flex-wrap gap-2 !mt-6 max-[1065px]:!mt-4 max-[1065px]:!mb-6">
+
           <motion.div
             variants={flyInVariants}
             initial="hidden"
@@ -316,6 +348,7 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
           >
             <CaseButton title={case1} />
           </motion.div>
+
           <motion.div
             variants={flyInVariants}
             initial="hidden"
@@ -324,8 +357,11 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
           >
             <CaseButton title={case2} />
           </motion.div>
+
         </div>
+
       </div>
+
       <style>
         {`
           .carousel-container {
@@ -343,8 +379,10 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
           }
         `}
       </style>
+
       <AnimatePresence>
         {activeTab === "Website" && (
+
           <motion.div
             key="background-rectangle-base"
             variants={rectangleVariants}
@@ -354,17 +392,20 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
             className="relative w-full h-fit bg-[var(--gray4)] border border-[var(--gray3)] rounded-[16px] !p-4 hidden max-[1065px]:block max-[1065px]:!mt-[10px] max-[1065px]:order-3 max-[1065px]:max-w-[512px]"
           >
             <div className="flex flex-col gap-1.5">
-            <TestimonialLink
+              <TestimonialLink
                 title="View the design"
                 link="https://www.figma.com/proto/pvhmPzSkD4Tq4S7pP1if8G/Motiejus-Website?page-id=0%3A1&node-id=0-221&viewport=-69%2C-997%2C0.79&t=52tlLx2crz2QqnsO-1&scaling=min-zoom&content-scaling=fixed"
                 src="images/svgs/Figma.svg"
               />
             </div>
           </motion.div>
+
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {activeTab === "Website" && (
+
           <motion.div
             key="background-rectangle-base"
             variants={rectangleVariants}
@@ -382,10 +423,13 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
               <TestimonialLink title="s" />
             </div>
           </motion.div>
+
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {activeTab === "Website" && (
+
           <motion.div
             key="background-rectangle-content"
             variants={rectangleVariants}
@@ -400,17 +444,21 @@ const TestimonialLeft = ({ brand, desc, case1, case2 }) => {
             }}
           >
             <div className="flex flex-col gap-1.5 items-end">
-            <TestimonialLink
+              <TestimonialLink
                 title="View the design"
                 link="https://www.figma.com/proto/pvhmPzSkD4Tq4S7pP1if8G/Motiejus-Website?page-id=0%3A1&node-id=0-221&viewport=-69%2C-997%2C0.79&t=52tlLx2crz2QqnsO-1&scaling=min-zoom&content-scaling=fixed"
                 src="images/svgs/Figma.svg"
               />
             </div>
           </motion.div>
+
         )}
       </AnimatePresence>
+
     </div>
+
   );
+
 };
 
-export default TestimonialLeft;
+export default MotiejusTestimonial;

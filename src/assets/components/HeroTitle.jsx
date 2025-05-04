@@ -46,7 +46,8 @@ const altContainerVariants = {
   },
 };
 
-const HeroTitle = ({spots}) => {
+const HeroTitle = ({ spots }) => {
+
   const titleLines = [
     'Yes, we build websites',
     'and not regular ones',
@@ -58,37 +59,40 @@ const HeroTitle = ({spots}) => {
 
   const splitLineIntoWords = (line, lineIndex) => {
     const words = line.split(' ');
-    return words.map((word, wordIndex) => {
-      const isSerif = lineIndex === 1 && word === serifWord;
-      return (
-        <span key={`${lineIndex}-${wordIndex}`} className="inline-block">
-          {word.split('').map((char, charIndex) => (
-            <motion.span
-              key={`${lineIndex}-${wordIndex}-${charIndex}`}
-              variants={titleLetterVariants}
-              className={isSerif ? 'serif' : ''}
-              style={{
-                display: 'inline-block',
-                whiteSpace: 'pre',
-                marginRight: char === 'Y' ? '-6px' : undefined,
-              }}
-            >
-              {char}
-            </motion.span>
-          ))}
-          {wordIndex < words.length - 1 && (
-            <span style={{ display: 'inline-block', whiteSpace: 'pre' }}> </span>
-          )}
-        </span>
-      );
-    });
+    return words.map((word, wordIndex) => (
+
+      <span key={`${lineIndex}-${wordIndex}`} className="inline-block">
+        {word.split('').map((char, charIndex) => (
+
+          <motion.span
+            key={`${lineIndex}-${wordIndex}-${charIndex}`}
+            variants={titleLetterVariants}
+            className={lineIndex === 1 && word === serifWord ? 'serif' : ''}
+            style={{
+              display: 'inline-block',
+              whiteSpace: 'pre',
+              marginRight: char === 'Y' ? '-6px' : undefined,
+            }}
+          >
+            {char}
+          </motion.span>
+
+        ))}
+        {wordIndex < words.length - 1 && (
+          <span style={{ display: 'inline-block', whiteSpace: 'pre' }}> </span>
+        )}
+      </span>
+
+    ));
   };
 
   const splitAltTextIntoWords = () => {
     const words = altText.split(' ');
     return words.map((word, wordIndex) => (
+
       <span key={`alt-${wordIndex}`} className="inline-block">
         {word.split('').map((char, charIndex) => (
+
           <motion.span
             key={`alt-${wordIndex}-${charIndex}`}
             variants={altLetterVariants}
@@ -96,23 +100,28 @@ const HeroTitle = ({spots}) => {
           >
             {char}
           </motion.span>
+
         ))}
         {wordIndex < words.length - 1 && (
           <span style={{ display: 'inline-block', whiteSpace: 'pre' }}> </span>
         )}
       </span>
+
     ));
   };
 
   return (
-    <>
-    <div className="flex w-fit !mt-[42px]">
-      <SpotsLeft spots={spots} className="!opacity-0 cursor-default"/>
-    </div>
 
-      <div className="smif text-[58px] leading-[115%] !mb-4  max-[1064px]:text-[50px] max-[548px]:text-[36px] max-[548px]:!mb-2">
-        
+    <>
+
+      <div className="flex w-fit !mt-[42px] max-[548px]:!mt-[36px]">
+        <SpotsLeft spots={spots} className="!opacity-0 cursor-default" />
+      </div>
+
+      <div className="smif text-[58px] leading-[115%] !mb-4 max-[1064px]:text-[50px] max-[548px]:text-[36px] max-[548px]:!mb-2">
+
         {titleLines.map((line, lineIndex) => (
+
           <motion.div
             key={lineIndex}
             custom={lineIndex}
@@ -124,8 +133,11 @@ const HeroTitle = ({spots}) => {
           >
             {splitLineIntoWords(line, lineIndex)}
           </motion.div>
+
         ))}
+
       </div>
+
       <motion.p
         className="sf text-xl alt max-w-[413px] leading-[130%] !mb-8 max-[548px]:text-[18px]"
         variants={altContainerVariants}
@@ -135,8 +147,11 @@ const HeroTitle = ({spots}) => {
       >
         {splitAltTextIntoWords()}
       </motion.p>
+
     </>
+
   );
+
 };
 
 export default HeroTitle;

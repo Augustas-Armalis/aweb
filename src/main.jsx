@@ -9,13 +9,14 @@ import NotFound from './assets/pages/NotFound.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/aweb"> {/* Replace <repo-name> with your actual repository name */}
+    <BrowserRouter>
       <Routes>
-      <Route path="/" element={<HomePage />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
+
   </StrictMode>
 );

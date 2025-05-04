@@ -18,7 +18,7 @@ const buttonVariants = {
 };
 
 const HeroButtons = () => {
-  // Initialize Cal.com SDK for the ButterflyBtn
+
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: '15min' });
@@ -34,7 +34,9 @@ const HeroButtons = () => {
   }, []);
 
   return (
+
     <div className="flex gap-2">
+
       <motion.div
         custom={0}
         variants={buttonVariants}
@@ -43,6 +45,7 @@ const HeroButtons = () => {
       >
         <ButterflyBtn title="Let's talk" />
       </motion.div>
+
       <motion.div
         custom={1}
         variants={buttonVariants}
@@ -50,10 +53,12 @@ const HeroButtons = () => {
         animate="visible"
       >
         <MainBtn title="Pricing" targetId="pricing" />
-
       </motion.div>
+
     </div>
+
   );
+
 };
 
 export default HeroButtons;

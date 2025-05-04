@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const UnavailableLink = ({ title }) => {
+
   const [isTooltipVisible, setTooltipVisible] = useState(false);
 
   const handleClick = () => {
@@ -10,17 +11,20 @@ const UnavailableLink = ({ title }) => {
   };
 
   return (
+
     <div
       className="relative inline-block"
       onMouseEnter={() => setTooltipVisible(true)}
       onMouseLeave={() => setTooltipVisible(false)}
     >
+
       <div
-        className="sf text-[18px] cursor-pointer circle-none  text-white/80 hover:text-white transition-colors duration-300 ease-out"
+        className="sf text-[18px] cursor-pointer circle-none text-white/80 hover:text-white transition-colors duration-300 ease-out"
         onClick={handleClick}
       >
         {title}
       </div>
+
       <AnimatePresence>
         {isTooltipVisible && (
           <motion.div
@@ -34,8 +38,11 @@ const UnavailableLink = ({ title }) => {
           </motion.div>
         )}
       </AnimatePresence>
+
     </div>
+
   );
+
 };
 
 export default UnavailableLink;

@@ -41,7 +41,6 @@ const ThirdBento = () => {
     "Client request deployed"
   ];
 
-  // Custom responses for requests
   const requestResponses = {
     "New testimonial": "Testimonial added",
     "Pricing section revamp": "Pricing updated",
@@ -192,7 +191,7 @@ const ThirdBento = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="text-[var(--gray2)] text-sm py-2 px-4 rounded-lg shadow-md !mb-1"
+              className="text-[var(--gray1)]/70 text-sm py-2 px-4 rounded-lg shadow-md !mb-1"
             >
               {requestedItem}
             </motion.div>
