@@ -12,7 +12,7 @@ function HomePage() {
   return (
     <>
       <FlyingCircle />
-      <div className="min-h-screen flex justify-center flex-col">
+      <div className="min-h-screen flex justify-center flex-col bg-black overflow-x-hidden">
         <Hero spots={spots} />
         <Bento />
         <Testimonials />

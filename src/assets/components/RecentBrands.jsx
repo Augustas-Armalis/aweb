@@ -56,7 +56,7 @@ const RecentBrands = () => {
       >
         Recent brands we worked with
       </motion.p>
-      <div ref={carouselRef} className="relative overflow-hidden max-w-[1000px]">
+      <div ref={carouselRef} className="relative overflow-hidden max-w-[1000px] max-[1064px]:w-full">
         <div className="h-[50px] w-[100px] bg-gradient-to-l from-black/0 to-black absolute left-0 z-10" />
         <div className="h-[50px] w-[100px] bg-gradient-to-r from-black/0 to-black absolute right-0 z-10" />
         <div className="flex flex-row gap-10 w-fit h-[40px] max-[1064px]:h-[32px] animate-infinite-scroll">

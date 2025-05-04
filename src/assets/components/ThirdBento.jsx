@@ -155,7 +155,7 @@ const ThirdBento = () => {
       </div>
 
       <div className="w-full h-full z-[0] absolute top-0 left-0 flex items-center justify-center !pt-[40px]">
-        <div className="absolute bg-[#839ABC] w-[200px] h-[60px] rounded-full blur-[100px] opacity-60" />
+        <div className="absolute bg-[#839ABC] w-[200px] h-[60px] rounded-full blur-[80px] opacity-60" />
       </div>
 
       <div className="relative h-[135px]">

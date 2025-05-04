@@ -110,7 +110,7 @@ const HeroTitle = ({spots}) => {
       <SpotsLeft spots={spots} className="!opacity-0 cursor-default"/>
     </div>
 
-      <div className="smif text-[58px] leading-[115%] !mb-4  max-[1064px]:text-[50px] max-[548px]:!mt-[36px] max-[548px]:text-[36px] max-[548px]:!mb-2">
+      <div className="smif text-[58px] leading-[115%] !mb-4  max-[1064px]:text-[50px] max-[548px]:text-[36px] max-[548px]:!mb-2">
         
         {titleLines.map((line, lineIndex) => (
           <motion.div

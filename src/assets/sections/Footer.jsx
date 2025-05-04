@@ -67,7 +67,7 @@ const Footer = () => {
 
   return (
     <div className="flex items-center justify-center w-full !mt-[192px] max-[548px]:!mt-[124px]">
-      <div className="w-[1000px] relative flex flex-col items-center !mx-8 h-fit max-[1064px]:w-full max-[548px]:!mx-4">
+      <div className="w-[1000px] relative flex flex-col items-center !mx-8 h-fit max-[1064px]:w-full max-[548px]:!mx-4 overflow-hidden">
         <motion.img
           ref={logoRef}
           src="images/svgs/HugeLogo.svg"
