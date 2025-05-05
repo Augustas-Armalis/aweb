@@ -178,36 +178,33 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
           <AnimatePresence mode="wait">
             {activeTab === "Testimonial" && (
               <>
-                {!isVideoPlaying ? (
+                <motion.div
+                  key="thumbnail"
+                  variants={contentVariants}
+                  initial="hidden"
+                  animate={isVideoPlaying ? "hidden" : "visible"}
+                  exit="exit"
+                  className="w-full h-full absolute top-0 left-0 cursor-pointer"
+                  style={{ zIndex: isVideoPlaying ? 10 : 20 }}
+                  onClick={handleVideoToggle}
+                >
+                  <img
+                    src="images/thumbnails/CopywizThumbnail.webp"
+                    alt="Video thumbnail"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
 
-                  <motion.div
-                    key="thumbnail"
-                    variants={contentVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    className="w-full h-full absolute top-0 left-0 cursor-pointer hover:!opacity-70 transition-opacity duration-300 ease-out"
-                    style={{ zIndex: 20 }}
-                    onClick={handleVideoToggle}
-                  >
-                    <img
-                      src="images/thumbnails/CopywizThumbnail.webp"
-                      alt="Video thumbnail"
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
-
-                ) : (
-
-                  <motion.div
-                    key="video"
-                    variants={contentVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    className="w-full h-full absolute top-0 left-0"
-                    style={{ zIndex: 10 }}
-                  >
+                <motion.div
+                  key="video"
+                  variants={contentVariants}
+                  initial="hidden"
+                  animate={isVideoPlaying ? "visible" : "hidden"}
+                  exit="exit"
+                  className="w-full h-full absolute top-0 left-0"
+                  style={{ zIndex: isVideoPlaying ? 20 : 10 }}
+                >
+                  {isVideoPlaying && (
                     <iframe
                       width="100%"
                       height="100%"
@@ -218,13 +215,11 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                       allowFullScreen
                       className="w-full h-full"
                     ></iframe>
-                  </motion.div>
-
-                )}
+                  )}
+                </motion.div>
               </>
             )}
             {activeTab === "Website" && (
-
               <motion.div
                 key="website"
                 variants={contentVariants}
@@ -238,7 +233,6 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                   style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
                 >
                   {images.map((image, index) => (
-
                     <div key={index} className="w-full h-full flex-shrink-0">
                       <img
                         src={image.src}
@@ -247,11 +241,9 @@ const CopywizTestimonial = ({ brand, desc, case1, case2 }) => {
                         draggable="false"
                       />
                     </div>
-
                   ))}
                 </div>
               </motion.div>
-
             )}
           </AnimatePresence>
 

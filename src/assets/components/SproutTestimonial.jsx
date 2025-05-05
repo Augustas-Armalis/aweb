@@ -195,7 +195,7 @@ const SproutTestimonial = ({ brand, desc, case1, case2 }) => {
                     <iframe
                       width="100%"
                       height="100%"
-                      src="https://www.youtube.com/embed/G7qvBdtHAO4?autoplay=1&mute=1&modestbranding=1&rel=0&controls=1&color=white"
+                      src="https://www.youtube.com/embed/G7qvBdtHAO4?autoplay=1&modestbranding=1&rel=0&controls=1&color=white"
                       title="YouTube video player"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
