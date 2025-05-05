@@ -9,6 +9,7 @@ const InfiniteSliders = () => {
   const topImageSrcs = [
     'images/websites/dark/Softwero.webp',
     'images/websites/dark/Wation.webp',
+    'images/websites/dark/EurEvo.webp',
     'images/websites/dark/Moon.webp',
     'images/websites/dark/Ferony.webp',
     'images/websites/dark/Plazma.webp',
