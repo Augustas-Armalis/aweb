@@ -25,6 +25,7 @@ const InfiniteSliders = () => {
     'images/websites/light/FlowForge.webp',
     'images/websites/light/Woodling.webp',
     'images/websites/light/Outlined.webp',
+    'images/websites/light/SuperSide.webp',
     'images/websites/light/JohnDush.webp',
     'images/websites/light/QuantumMedia.webp',
     'images/websites/light/Stroupe.webp',
