@@ -33,7 +33,7 @@ const LeftPricingBox = () => {
         <div className="flex justify-between !mt-3">
           <p className="smif text-[22px]">Website Design</p>
           <p className="smif text-[20px]">
-            €1K<span className="alt !ml-[2px]">+</span>
+            €1.5K<span className="alt !ml-[2px]">+</span>
           </p>
         </div>
 

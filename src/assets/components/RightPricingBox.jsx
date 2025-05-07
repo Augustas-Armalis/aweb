@@ -34,7 +34,7 @@ const RightPricingBox = () => {
         <div className="flex justify-between !mt-3">
           <p className="smif text-[22px] ">Enterprise</p>
           <p className="smif text-[20px]">
-            €3K<span className="alt !ml-[2px]">+</span>
+            €4K<span className="alt !ml-[2px]">+</span>
           </p>
         </div>
 

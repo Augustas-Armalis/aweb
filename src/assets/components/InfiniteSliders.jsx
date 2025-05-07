@@ -113,7 +113,7 @@ const InfiniteSliders = () => {
 
   const topTotalWidth = topNumberOfSlides * (slideWidth + gap) - gap;
   const bottomTotalWidth = bottomNumberOfSlides * (slideWidth + gap) - gap;
-  const bottomDuration = bottomTotalWidth / (topTotalWidth / 25);
+  const bottomDuration = bottomTotalWidth / (topTotalWidth / 35);
 
   return (
 
@@ -128,7 +128,7 @@ const InfiniteSliders = () => {
           }}
           transition={{
             ease: 'linear',
-            duration: 25,
+            duration: 40,
             repeat: Infinity,
           }}
         >

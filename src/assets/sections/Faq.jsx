@@ -57,7 +57,7 @@ const Faq = () => {
           >
             <FaqQuestion
               question="How much time it takes to develop a website?"
-              answer="See & adjust the first design within 4 days. Usually it takes 1-2 weeks to completely develop the entire website. The speed also depends on how fast you give feedback and how infromal our communication is."
+              answer="See & adjust the first design within 4 days. Usually it takes 1-2 weeks to completely develop the entire website. The speed also depends on how fast you give feedback and how great our communication is."
             />
           </motion.div>
           <motion.div

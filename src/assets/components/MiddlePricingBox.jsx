@@ -33,7 +33,7 @@ const MiddlePricingBox = () => {
         <div className="flex justify-between !mt-3">
           <p className="smif text-[22px]">Landing Page</p>
           <p className="smif text-[20px]">
-            €2K<span className="alt !ml-[2px]">+</span>
+            €2.5K<span className="alt !ml-[2px]">+</span>
           </p>
         </div>
 
