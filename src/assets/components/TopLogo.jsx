@@ -42,8 +42,8 @@ const TopLogo = () => {
           animate={logoControls} 
           transition={{ ease: customEase, duration: 0.5 }}
         >
-          <img src="images/svgs/MiniLogo.svg" alt="mini logo" />
-          <img src="images/svgs/MiniLogo.svg" alt="mini logo" className="opacity-70" />
+          <img src="images/logos/MiniLogo.svg" alt="mini logo" />
+          <img src="images/logos/MiniLogo.svg" alt="mini logo" className="opacity-70" />
         </motion.div>
       </motion.div>
 

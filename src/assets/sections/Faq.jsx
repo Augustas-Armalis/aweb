@@ -5,7 +5,6 @@ import FaqQuestion from "../components/FaqQuestion.jsx";
 import TestimonialButton from "../buttons/TestimonialButton.jsx";
 
 const Faq = () => {
-  // Refs for each FAQ question and the TestimonialButton section
   const firstRef = useRef(null);
   const secondRef = useRef(null);
   const thirdRef = useRef(null);
@@ -13,7 +12,6 @@ const Faq = () => {
   const fifthRef = useRef(null);
   const buttonRef = useRef(null);
 
-  // useInView hooks to detect when each section is in view
   const isFirstInView = useInView(firstRef, { once: true, margin: "0px 0px -50px 0px" });
   const isSecondInView = useInView(secondRef, { once: true, margin: "0px 0px -50px 0px" });
   const isThirdInView = useInView(thirdRef, { once: true, margin: "0px 0px -50px 0px" });
@@ -21,13 +19,11 @@ const Faq = () => {
   const isFifthInView = useInView(fifthRef, { once: true, margin: "0px 0px -50px 0px" });
   const isButtonInView = useInView(buttonRef, { once: true, amount: 0.5 });
 
-  // Animation variants for FAQ fly-in effect
   const faqVariants = {
     hidden: { opacity: 0, y: 80 },
     visible: { opacity: 1, y: 0 },
   };
 
-  // Animation variants for TestimonialButton section (from SpotsLeft)
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (index) => ({
@@ -36,7 +32,7 @@ const Faq = () => {
       transition: {
         duration: 1,
         ease: [0.25, 0, 0.1, 1],
-        delay: index * 0.17, // Stagger of 0.17s between elements
+        delay: index * 0.17,
       },
     }),
   };

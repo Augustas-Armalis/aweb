@@ -13,7 +13,7 @@ const Footer = () => {
   const isLinksInView = useInView(linksRef, { once: true, margin: "0px 0px -50px 0px" });
   const isSocialLinksInView = useInView(socialLinksRef, { once: true, margin: "0px 0px -50px 0px" });
   const isLogoInView = useInView(logoRef, { once: true, margin: "0px 0px -50px 0px" });
-  const isBottomInView = useInView(bottomRef, { once: true, margin: "0px 0px -50px 0px" }); // Fixed: customRef -> bottomRef
+  const isBottomInView = useInView(bottomRef, { once: true, margin: "0px 0px -50px 0px" });
 
   const linkVariants = {
     hidden: { opacity: 0, y: 50 },
