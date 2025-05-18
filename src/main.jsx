@@ -8,6 +8,9 @@ import Privacy from './assets/pages/Privacy.jsx';
 import Newsletter from './assets/pages/Newsletter.jsx';
 import NotFound from './assets/pages/NotFound.jsx';
 
+import Giveaway1 from './assets/pages/Giveaways/giveaway1.jsx';
+
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -17,6 +20,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/newsletter" element={<Newsletter />} />
         <Route path="*" element={<NotFound />} />
+
+        <Route path="/giveaways/giveaway1" element={<Giveaway1 />} />
       </Routes>
     </BrowserRouter>
 

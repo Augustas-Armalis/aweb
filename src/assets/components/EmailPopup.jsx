@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const EmailPopup = () => {
-
+const EmailPopup = ({ newSrc }) => {
   const [isTooltipVisible, setTooltipVisible] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
 
   const email = "hello@augustas.co";
+  const defaultSrc = "images/svgs/Email.svg";
 
   const handleClick = () => {
     setTooltipVisible(true);
@@ -47,23 +47,20 @@ const EmailPopup = () => {
   }, [timeoutId]);
 
   return (
-
     <div
       className="relative inline-block"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-
       <div
         className="cursor-pointer opacity-30 hover:opacity-60 circle-none transition-opacity duration-300 ease-out"
         onClick={handleClick}
       >
-        <img src="images/svgs/Email.svg" alt="icon" />
+        <img src={newSrc || defaultSrc} alt="icon" />
       </div>
 
       <AnimatePresence>
         {isTooltipVisible && (
-
           <motion.div
             className="absolute bottom-full left-1/2 transform -translate-x-1/2 !mb-1 !px-3 !py-1 border border-[var(--gray3)] flex text-nowrap bg-[var(--gray4)] text-white text-sm rounded-[10px] alt circle-none"
             initial={{ opacity: 0, y: -10 }}
@@ -71,23 +68,17 @@ const EmailPopup = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
-
             <span
               className="cursor-pointer text-white/80 hover:text-white transition-colors duration-200"
               onClick={handleCopy}
             >
               {isCopied ? "Copied!" : email}
             </span>
-
           </motion.div>
-
         )}
       </AnimatePresence>
-
     </div>
-
   );
-
 };
 
 export default EmailPopup;

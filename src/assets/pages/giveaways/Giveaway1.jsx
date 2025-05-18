@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import FlyInTitle from "../components/FlyInTitle.jsx";
-import FlyInAltTitle from "../components/FlyInAltTitle.jsx";
-import EmailPopup from "../components/EmailPopup.jsx";
+import FlyInTitle from "../../components/FlyInTitle.jsx";
+import FlyInAltTitle from "../../components/FlyInAltTitle.jsx";
+import EmailPopup from "../../components/EmailPopup.jsx";
 import { useState } from 'react';
 
-const Newsletter = () => {
+const giveaway1 = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionResult, setSubmissionResult] = useState(null);
 
@@ -150,7 +150,7 @@ const Newsletter = () => {
             to="/"
             className="hover:opacity-70 transition-opacity duration-300 ease-out absolute top-[32px] left-[64px] max-[1064px]:hidden"
           >
-            <img src="images/logos/MiniLogo.svg" alt="logo" className="w-[42px] h-[42px]" />
+            <img src="../../images/logos/MiniLogo.svg" alt="logo" className="w-[42px] h-[42px]" />
           </Link>
         </motion.div>
 
@@ -288,15 +288,15 @@ const Newsletter = () => {
           >
             <motion.div variants={itemVariants}>
               <a
-                href="https://x.com/AugustasWebsite"
+                href="https://x.com/AugustasDesign"
                 target="_blank"
                 className="cursor-pointer opacity-30 hover:opacity-60 circle-none transition-opacity duration-300 ease-out"
               >
-                <img src="images/svgs/Twitter.svg" alt="icon" className="w-[24px] h-[24px]" />
+                <img src="../../images/svgs/Twitter.svg" alt="icon" className="w-[24px] h-[24px]" />
               </a>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <EmailPopup />
+              <EmailPopup newSrc="../../images/svgs/Email.svg"/>
             </motion.div>
             <motion.div variants={itemVariants}>
               <a
@@ -304,7 +304,7 @@ const Newsletter = () => {
                 target="_blank"
                 className="cursor-pointer opacity-30 hover:opacity-60 circle-none transition-opacity duration-300 ease-out"
               >
-                <img src="images/svgs/Linkedin.svg" alt="icon" className="w-[24px] h-[24px]" />
+                <img src="../../images/svgs/Linkedin.svg" alt="icon" className="w-[24px] h-[24px]" />
               </a>
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -313,7 +313,7 @@ const Newsletter = () => {
                 target="_blank"
                 className="cursor-pointer opacity-30 hover:opacity-60 circle-none transition-opacity duration-300 ease-out"
               >
-                <img src="images/svgs/Dribble.svg" alt="icon" className="w-[24px] h-[24px]" />
+                <img src="../../images/svgs/Dribble.svg" alt="icon" className="w-[24px] h-[24px]" />
               </a>
             </motion.div>
           </motion.div>
@@ -336,4 +336,4 @@ const Newsletter = () => {
   );
 };
 
-export default Newsletter;
+export default giveaway1;

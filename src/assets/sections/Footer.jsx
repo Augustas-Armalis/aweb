@@ -99,7 +99,7 @@ const Footer = () => {
         </div>
         <div ref={socialLinksRef} className="flex flex-row gap-2 z-2 !mb-[42px] aboslute max-[400px]:!mb-[64px]">
           <motion.div custom={0} initial="hidden" animate={isSocialLinksInView ? "visible" : "hidden"} variants={socialLinkVariants}>
-            <a href="https://x.com/AugustasWebsite" target="_blank" className="cursor-pointer opacity-30 hover:opacity-60 circle-none transition-opacity duration-300 ease-out">
+            <a href="https://x.com/AugustasWeb" target="_blank" className="cursor-pointer opacity-30 hover:opacity-60 circle-none transition-opacity duration-300 ease-out">
               <img src="images/svgs/Twitter.svg" alt="icon" />
             </a>
           </motion.div>
