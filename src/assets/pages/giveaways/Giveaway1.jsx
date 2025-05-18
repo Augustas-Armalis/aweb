@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import FlyInTitle from "../../components/FlyInTitle.jsx";
 import FlyInAltTitle from "../../components/FlyInAltTitle.jsx";
 import EmailPopup from "../../components/EmailPopup.jsx";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const giveaway1 = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionResult, setSubmissionResult] = useState(null);
+  const lottieRef = useRef(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -134,11 +136,11 @@ const giveaway1 = () => {
           to="/"
           className="hover:opacity-70 transition-opacity duration-300 ease-out absolute top-[24px] left-[24px] hidden max-[1064px]:block"
         >
-          <img src="images/logos/MiniLogo.svg" alt="logo" className="w-[42px] h-[42px]" />
+          <img src="../../images/logos/MiniLogo.svg" alt="logo" className="w-[42px] h-[42px]" />
         </Link>
       </motion.div>
 
-      <div className="w-[800px] h-full bg-black flex flex-col justify-center items-center !px-[64px] !py-[32px] relative max-[1064px]:!px-[16px] max-[1064px]:!py-[24px] max-[1064px]:w-full max-[1064px]:h-[60vh] max-[1064px]:justify-between max-[1064px]:!pt-[42px] max-[1064px]:!pb-[16px] z-[200]">
+      <div className="w-[800px] h-full bg-black flex flex-col justify-center items-center !px-[64px] !py-[32px] relative max-[1064px]:!px-[16px] max-[1064px]:!py-[24px] max-[1064px]:w-full max-[1064px]:h-[60vh] max-[1064px]:justify-between max-[1064px]:!pt-[32px] max-[1064px]:!pb-[16px] z-[200]">
         <div className="absolute top-[-200px] left-0 w-screen h-[200px] max-[440px]:h-[100px] max-[440px]:top-[-100px] pointer-events-none">
           <div className="absolute inset-0 backdrop-blur-[4px] bg-black/10 [mask-image:linear-gradient(to_top,black,transparent)] [-webkit-mask-image:linear-gradient(to_top,black,transparent)]" />
           <div className="absolute inset-0 backdrop-blur-[20px] bg-black/30 [mask-image:linear-gradient(to_top,black,transparent)] [-webkit-mask-image:linear-gradient(to_top,black,transparent)]" />
@@ -157,19 +159,23 @@ const giveaway1 = () => {
         <div>
           {submissionResult === null && (
             <motion.div
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-6 max-[1064px]:top-[-42px] relative"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
+
+              
+
+              
               <div className="flex flex-col gap-2">
                 <FlyInTitle
-                  title="Lorem ipsum dolor sit amet consectetur adipisicing elit "
+                  title="6 Free Hero-Designs"
                   className="max-w-[404px] text-start !text-[32px] max-[1064px]:text-center max-[440px]:!text-[28px]"
                   staggerTime={0.01}
                 />
                 <FlyInAltTitle
-                  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi delectus numquam sunt vero aliquid"
+                  text="Get a copy by filling in the form below"
                   className="!max-w-[404px] text-start !text-[18px] max-[1064px]:text-center max-[440px]:!text-[16px] !mb-[16px]"
                 />
               </div>
@@ -203,7 +209,7 @@ const giveaway1 = () => {
                   variants={itemVariants}
                 >
                   <p className="smif text-black text-[18px] leading-[115%] !pt-[4px]">
-                    {isSubmitting ? 'Wait a moment...' : 'Lorem ipsum'}
+                    {isSubmitting ? 'Submitting...' : 'Get designs'}
                   </p>
                 </motion.button>
               </motion.form>
@@ -217,20 +223,38 @@ const giveaway1 = () => {
               initial="hidden"
               animate="visible"
             >
+              <motion.div ariants={actionFlyInVariants} className="w-full h-full flex flex-col items-center max-[1064px]:!mb-[100px]">
+
+              <div ref={lottieRef} className="w-full h-fit flex items-center justify-center">
+                <DotLottieReact
+                  src="https://lottie.host/dc29b91d-02d0-45ee-92ff-1940917a12c1/EdY0IxwWnQ.lottie"
+                  autoplay={true}
+                  loop={false}
+                  style={{ width: '70px', height: '70px' }}
+                  onComplete={() => {
+                    console.log('Animation completed');
+                    if (lottieRef.current) {
+                      lottieRef.current.pause();
+                    }
+                  }}
+                  onLoad={() => {
+                    console.log('Animation loaded');
+                  }}
+                  onError={(error) => {
+                    console.error('Animation error:', error);
+                  }}
+                />
+              </div>
 
 
-              <motion.p variants={actionFlyInVariants} className="text-white text-[18px] text-center">
+                <p className="text-center smif text-[24px] w-full !mb-2">Thankyou!</p>
+                <p className="text-base">Get designs by clickiing <a href="https://www.figma.com/community/file/1506040653392892414" className="text-blue-400 underline" target="_blank"> here</a></p>
+
+                <p className="text-base !mt-4 !px-[42px] text-center max-w-[320px]">P.S. If you'd like me to roast your hero section, check <a href="https://roast.augustas.co" className="text-blue-400 underline" target="_blank"> this</a> out</p>
 
 
 
-                Subscription Successful!
-
-
-
-              </motion.p>
-
-
-
+              </motion.div>
             </motion.div>
           )}
 
@@ -244,9 +268,36 @@ const giveaway1 = () => {
 
 
 
-              <motion.p variants={actionFlyInVariants} className="text-white text-[18px] text-center">
-                Subscription Failed!
-              </motion.p>
+                <motion.div ariants={actionFlyInVariants} className="w-full h-full flex flex-col items-center max-[1064px]:!mb-[100px]">
+
+                <div ref={lottieRef} className="w-full h-fit flex items-center justify-center">
+                  <DotLottieReact
+                    src="https://lottie.host/03a6bdf9-e4a4-4dd9-a37c-a7b76c0d6268/y6MZDpgafZ.lottie"
+                    autoplay={true}
+                    loop={false}
+                    style={{ width: '70px', height: '70px' }}
+                    onComplete={() => {
+                      console.log('Animation completed');
+                      if (lottieRef.current) {
+                        lottieRef.current.pause();
+                      }
+                    }}
+                    onLoad={() => {
+                      console.log('Animation loaded');
+                    }}
+                    onError={(error) => {
+                      console.error('Animation error:', error);
+                    }}
+                  />
+                </div>
+
+
+
+                <p className="text-center smif text-[24px] w-full !mb-2">Uh oh...</p>
+                <p className="text-base !mb-4">Something wen't wrong</p>
+
+
+
 
               <motion.a
                 href="#"
@@ -254,14 +305,23 @@ const giveaway1 = () => {
                   e.preventDefault();
                   handleReset();
                 }}
-                className="w-full cursor-pointer select-none bg-white border border-black flex items-center justify-center rounded-[10px] h-fit !pt-[4px] !pb-[7px] !pl-[19px] !pr-[19px] transition-opacity ease-out duration-500 hover:!opacity-70"
+                className="w-fit cursor-pointer select-none bg-white border border-black flex items-center justify-center rounded-[10px] h-fit !pt-[4px] !pb-[7px] !pl-[19px] !pr-[19px] transition-opacity ease-out duration-500 hover:!opacity-70 disabled:!opacity-50"
                 variants={actionFlyInVariants}
               >
-                <p className="smif alt text-[18px] leading-[115%] !pt-[4px]">Try again</p>
-                
+                <p className="smif text-black text-[18px] leading-[115%] !pt-[4px]">Try again</p>
               </motion.a>
 
 
+
+
+
+
+
+
+
+
+
+              </motion.div>
 
 
 
@@ -327,7 +387,7 @@ const giveaway1 = () => {
         animate="visible"
       >
         <img
-          src="images/thumbnails/mes.png"
+          src="../../images/giveaways/giveaway1.webp"
           alt="image"
           className="object-cover object-center w-full h-full"
         />
