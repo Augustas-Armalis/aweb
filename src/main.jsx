@@ -8,7 +8,8 @@ import Terms from './assets/pages/Terms.jsx';
 import Privacy from './assets/pages/Privacy.jsx';
 import Newsletter from './assets/pages/Newsletter.jsx';
 import NotFound from './assets/pages/NotFound.jsx';
-import Giveaway1 from './assets/pages/Giveaways/giveaway1.jsx';
+import Giveaway1 from './assets/pages/giveaways/Giveaway1.jsx';
+import Giveaway2 from './assets/pages/giveaways/Giveaway2.jsx';
 import HereIsWhere from './assets/pages/HereIsWhere.jsx';
 
 createRoot(document.getElementById('root')).render(
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/giveaways/giveaway1" element={<Giveaway1 />} />
+          <Route path="/giveaways/giveaway2" element={<Giveaway2 />} />
           <Route path="/hereiswhere" element={<HereIsWhere />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
