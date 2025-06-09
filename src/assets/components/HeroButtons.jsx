@@ -21,7 +21,7 @@ const HeroButtons = () => {
 
   useEffect(() => {
     (async function () {
-      const cal = await getCalApi({ namespace: '15min' });
+      const cal = await getCalApi({"namespace":"aweb"});
       cal('ui', {
         cssVarsPerTheme: {
           light: { 'cal-brand': '#ffffff' },

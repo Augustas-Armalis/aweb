@@ -7,7 +7,7 @@ import PricingBtn from "../buttons/PricingBtn.jsx";
 const MiddlePricingBox = () => {
   useEffect(() => {
     (async function () {
-      const cal = await getCalApi({ namespace: "15min" });
+      const cal = await getCalApi({ namespace: "aweb" });
       cal("ui", {
         cssVarsPerTheme: {
           light: { "cal-brand": "#ffffff" },
@@ -55,8 +55,8 @@ const MiddlePricingBox = () => {
           title="Apply now"
           className="bg-white border border-[var(--gray4)] hover:opacity-70"
           text="text-black"
-          data-cal-namespace="15min"
-          data-cal-link="augustas/15min"
+          data-cal-namespace="aweb"
+          data-cal-link="augustas/aweb"
           data-cal-config='{"layout":"month_view"}'
         />
       </div>
